@@ -1,7 +1,9 @@
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import styles from '../styles/Index.module.css';
 
-const Home = ({ history }) => {
+const Home = () => {
+  const router = useRouter();
 
   function changeRoute(){
     const ONE_SECOND = 1000;
@@ -12,13 +14,13 @@ const Home = ({ history }) => {
       element.style.animationDuration = "1.5s";
     })
     setTimeout(() => {
-      history.push('/authentication');
+      router.push('/authentication');
     }, ONE_SECOND);
   }
     
 
   return(
-    <div className="home-page">
+    <div className={ styles.indexPage }>
       <section>
         <h1 className="fade-out">Note</h1>
         <h2 className="fade-out">O amigo de sua memória</h2>

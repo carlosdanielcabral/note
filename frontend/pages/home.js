@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css';
 
 const Principal = ({ history }) => {
   return (
-    <div className="principal-page">
+    <div className={ styles.principalPage }>
       <Header />
       <main>
         <select>
@@ -13,11 +13,11 @@ const Principal = ({ history }) => {
           <option>Ano passado</option>
         </select>
 
-        <section className="notes">
+        <section className={ styles.notes }>
 
         </section>
 
-        <section className="daily-phrase">
+        <section className={ styles.dailyPhrase }>
           <h2>Frase do dia</h2>
           <q>Mais vale um passáro na mão do que dois voando</q>
         </section>
@@ -25,7 +25,7 @@ const Principal = ({ history }) => {
 
       <button
         type="button"
-        className="note-options"
+        className={ styles.noteOptions }
         onClick={ () => history.push('/note/new') }
       >
         +

@@ -1,9 +1,9 @@
-.principal-page main {
+.principalPage main {
   padding: 0 30px;
   padding-top: 50px;
 }
 
-.principal-page select {
+.principalPage select {
   appearance: none;
   background-color: inherit;
   border: none;
@@ -16,19 +16,19 @@
   -moz-appearance: none;
 }
 
-.principal-page select option {
+.principalPage select option {
   font-size: 16px;
   padding: 20px;
 }
 
-.principal-page .notes {
+.notes {
   border: 1px solid rgb(200, 200, 200);
   height: 250px;
   margin: 30px 0;
   width: 100%;
 }
 
-.principal-page main .daily-phrase {
+.dailyPhrase {
   margin: 30px 0;
 }
 
@@ -36,7 +36,7 @@ h2 {
   font-weight: 300;
 }
 
-button.note-options {
+.noteOptions {
   align-items: center;
   background-color: #15B097;
   border: none;

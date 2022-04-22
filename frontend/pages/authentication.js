@@ -46,9 +46,9 @@ const Authentication = ({ history }) => {
   }
 
   return (
-    <div className="authentication-page">
-      <section className="forms-container">
-        <section className="left">
+    <div className={ styles.authenticationPage }>
+      <section className={ styles.formsContainer }>
+        <section className={ styles.left }>
           <form>
             <fieldset>
               <legend>Login</legend>
@@ -66,7 +66,7 @@ const Authentication = ({ history }) => {
                 value={ password }
               />
 
-              <span className="register-option">
+              <span className={ styles.registerOption }>
                 <a href="#register-section">Não está cadastrado?</a>
               </span>
 
@@ -81,7 +81,7 @@ const Authentication = ({ history }) => {
           </form>
         </section>
 
-        <section className="right" id="register-section">
+        <section className={ styles.right } id="register-section">
         <form>
             <fieldset>
               <legend>Cadastro</legend>
@@ -108,7 +108,7 @@ const Authentication = ({ history }) => {
 
               <button
                 type="submit"
-                className="register"
+                className={ styles.register }
                 onClick={ registerUser }
                 >
                 Cadastrar

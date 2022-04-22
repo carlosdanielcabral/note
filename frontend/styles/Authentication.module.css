@@ -17,7 +17,7 @@
   }
 }
 
-.authentication-page {
+.authenticationPage {
   animation-name: fade-in-color;
   animation-duration: 1s;
   align-items: center;
@@ -29,7 +29,7 @@
   overflow: hidden;
 }
 
-.forms-container {
+.formsContainer {
   animation-name: fade-in-opacity;
   animation-duration: 1s;
   align-items: center;
@@ -45,45 +45,45 @@
   width: 85vw;
 }
 
-.authentication-page .left, .authentication-page .right {
+.left, .right {
   box-sizing: border-box;
   height: 70vh;
   padding: 0 20px;
   width: 50%;
 }
 
-.authentication-page .left {
+.left {
   border-right: 1px solid rgb(230, 230, 230);
   padding-left: 20px;
 }
 
-.authentication-page .right {
+.right {
   padding-right: 20px;
 }
 
-.authentication-page fieldset {
+.authenticationPage fieldset {
   border: none;
   display: flex;
   flex-direction: column;
 }
 
-.authentication-page fieldset legend {
+.authenticationPage fieldset legend {
   font-size: 26px;
   font-weight: 200;
 }
 
-.authentication-page input {
+.authenticationPage input {
   border: 1px solid rgb(230, 230, 230);
   border-radius: 3px;
   margin: 20px 0;
   padding: 15px;
 }
 
-.authentication-page .register-option {
+.registerOption {
   display: none;
 }
 
-.authentication-page button {
+.authenticationPage button {
   align-items: center;
   border-radius: 3px;
   font-size: 14px;
@@ -92,30 +92,30 @@
   width: 150px;
 }
 
-button.login {
+.login {
   background-color: #15B097;
   border: 1px solid #15B097;
   color: white;
 }
 
-button.login:hover {
+.login:hover {
   background-color: inherit;
   color: #15B097;
 }
 
-button.register {
+.register {
   background-color: #2660A4;
   border: 1px solid #2660A4;
   color: white;
 }
 
-button.register:hover {
+.register:hover {
   background-color: inherit;
   color: #2660A4;
 }
 
 @media screen and (max-width: 600px) {
-  .authentication-page .left, .authentication-page .right {
+  .left, .right {
     align-items: center;
     display: flex;
     height: 100vh;
@@ -124,31 +124,31 @@ button.register:hover {
     width: 100%;
   }
 
-  .authentication-page form {
+  .authenticationPage form {
     width: 100%;
   }
 
-  .authentication-page fieldset legend {
+  .authenticationPage fieldset legend {
     font-size: 38px;
     font-weight: 100;
   }
 
-  .authentication-page input {
+  .authenticationPage input {
     font-size: 18px;
   }
 
-  .authentication-page .register-option {
+  .registerOption {
     display: block;
     padding: 15px 0;
   }
 
-  .authentication-page a {
+  .authenticationPage a {
     color: rgb(51, 90, 148);
     font-size: 14px;
     text-decoration: none;
   }
 
-  .authentication-page button {
+  .authenticationPage button {
     font-size: 18px;
     height: 45px;
     width: 100%;

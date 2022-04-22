@@ -18,7 +18,7 @@
   }
 }
 
-.home-page {
+.indexPage {
   align-items: center;
   background-color: #030912;
   box-sizing: border-box;
@@ -30,19 +30,19 @@
   width: 100vw;
 }
 
-.home-page section {
+.indexPage section {
   text-align: center;
   height: 50vh;
 }
 
-.home-page h1 {
+.indexPage h1 {
   font-size: 70px;
   font-weight: 100;
   margin-bottom: 0;
   margin-top: 100px;
 }
 
-.home-page h2 {
+.indexPage h2 {
   animation-duration: 2s;
   animation-name: fade-in;
   font-size: 20px;
@@ -52,11 +52,11 @@
   white-space: nowrap;
 }
 
-.home-page section:nth-child(2) {
+.indexPage section:nth-child(2) {
   margin-top: 50px;
 }
 
-.home-page button {
+.indexPage button {
   background-color: #108a75;
   border: 1px solid #108a75;
   border-radius: 5px;
@@ -68,13 +68,13 @@
   transition: 300ms;
 }
 
-.home-page button:hover {
+.indexPage button:hover {
   background-color: inherit;
   color: #108a75;
 }
 
 @media only screen and (max-width : 600px) {
-  .home-page button {
+  .indexPage button {
     font-size: 20px;
     padding: 18px 36px;
   }

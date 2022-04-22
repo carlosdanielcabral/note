@@ -13,10 +13,10 @@ const Note = () => {
   }, []);
 
   return (
-    <div className="note-page">
+    <div className={ styles.notePage }>
       <Header />
 
-      <div className="editor-container">
+      <div className={ styles.editorContainer }>
         <div id="toolbar"></div>
         <div id="editor">
           {
