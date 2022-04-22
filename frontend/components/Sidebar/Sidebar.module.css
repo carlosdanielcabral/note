@@ -1,12 +1,16 @@
 .menu {
+  align-items: center;
+  display: flex;
   background-color: inherit;
   border: none;
+  color: white;
+  font-size: 20px;
 }
 
-.menu img {
+/* .menu img {
   margin-right: 5px;
   width: 30px;
-}
+} */
 
 .sidebar {
   background-color: rgba(23, 29, 38);
@@ -34,8 +38,10 @@
 }
 
 .userImage {
+  background-color: white;
   border-radius: 50%;
   width: 80px;
+  height: 80px;
 }
 
 .userImage img {
@@ -45,4 +51,9 @@
 
 .sidebar h2 {
   font-size: 20px;
+}
+
+.sidebar h3 {
+  align-items: center;
+  display: flex;
 }

@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
+import { AiOutlineMenu, AiFillEdit } from "react-icons/ai";
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => (
   <section className={ styles.sidebarContainer }>
     <button type="button" className={ styles.menu }>
-      <Image src="/../../assets/img/menu_white.svg" alt="Menu icon" layout="fill" />
+      <AiOutlineMenu />
     </button>
 
     <div className={ styles.sidebar }>
@@ -15,7 +16,9 @@ const Sidebar = () => (
         </div>
         <h2>Usuário</h2>
         <h3>
-          <span className="material-icons">drive_file_rename_outline</span>
+          <span>
+            <AiFillEdit />
+          </span>
           Editar
         </h3>
       </section>
