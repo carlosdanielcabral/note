@@ -1,0 +1,156 @@
+@keyframes fade-in-color {
+  from {
+    background-color: #030912;
+  }
+  to {
+    background-color: white;
+  }
+}
+
+@keyframes fade-in-opacity {
+  from {
+    opacity: 0;
+    box-shadow: none;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.authentication-page {
+  animation-name: fade-in-color;
+  animation-duration: 1s;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.forms-container {
+  animation-name: fade-in-opacity;
+  animation-duration: 1s;
+  align-items: center;
+  background-color: rgb(253, 253, 253);
+  border-radius: 3px;
+  box-shadow: 1px 1px 8px 1px rgb(240, 240, 240);
+  color: rgb(100, 100, 100);
+  display: flex;
+  flex-wrap: wrap;
+  height: 80vh;
+  justify-content: space-between;
+  padding: 20px;
+  width: 85vw;
+}
+
+.authentication-page .left, .authentication-page .right {
+  box-sizing: border-box;
+  height: 70vh;
+  padding: 0 20px;
+  width: 50%;
+}
+
+.authentication-page .left {
+  border-right: 1px solid rgb(230, 230, 230);
+  padding-left: 20px;
+}
+
+.authentication-page .right {
+  padding-right: 20px;
+}
+
+.authentication-page fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.authentication-page fieldset legend {
+  font-size: 26px;
+  font-weight: 200;
+}
+
+.authentication-page input {
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 3px;
+  margin: 20px 0;
+  padding: 15px;
+}
+
+.authentication-page .register-option {
+  display: none;
+}
+
+.authentication-page button {
+  align-items: center;
+  border-radius: 3px;
+  font-size: 14px;
+  height: 40px;
+  transition: 300ms;
+  width: 150px;
+}
+
+button.login {
+  background-color: #15B097;
+  border: 1px solid #15B097;
+  color: white;
+}
+
+button.login:hover {
+  background-color: inherit;
+  color: #15B097;
+}
+
+button.register {
+  background-color: #2660A4;
+  border: 1px solid #2660A4;
+  color: white;
+}
+
+button.register:hover {
+  background-color: inherit;
+  color: #2660A4;
+}
+
+@media screen and (max-width: 600px) {
+  .authentication-page .left, .authentication-page .right {
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    padding: 50px 10px;
+    width: 100%;
+  }
+
+  .authentication-page form {
+    width: 100%;
+  }
+
+  .authentication-page fieldset legend {
+    font-size: 38px;
+    font-weight: 100;
+  }
+
+  .authentication-page input {
+    font-size: 18px;
+  }
+
+  .authentication-page .register-option {
+    display: block;
+    padding: 15px 0;
+  }
+
+  .authentication-page a {
+    color: rgb(51, 90, 148);
+    font-size: 14px;
+    text-decoration: none;
+  }
+
+  .authentication-page button {
+    font-size: 18px;
+    height: 45px;
+    width: 100%;
+  }
+}

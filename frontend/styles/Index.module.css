@@ -1,0 +1,81 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.home-page {
+  align-items: center;
+  background-color: #030912;
+  box-sizing: border-box;
+  color: white;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.home-page section {
+  text-align: center;
+  height: 50vh;
+}
+
+.home-page h1 {
+  font-size: 70px;
+  font-weight: 100;
+  margin-bottom: 0;
+  margin-top: 100px;
+}
+
+.home-page h2 {
+  animation-duration: 2s;
+  animation-name: fade-in;
+  font-size: 20px;
+  font-weight: 100;
+  margin-top: 10px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.home-page section:nth-child(2) {
+  margin-top: 50px;
+}
+
+.home-page button {
+  background-color: #108a75;
+  border: 1px solid #108a75;
+  border-radius: 5px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  padding: 10px 20px;
+  transition: 300ms;
+}
+
+.home-page button:hover {
+  background-color: inherit;
+  color: #108a75;
+}
+
+@media only screen and (max-width : 600px) {
+  .home-page button {
+    font-size: 20px;
+    padding: 18px 36px;
+  }
+}

@@ -1,0 +1,71 @@
+header {
+  background-color: #030912;
+  color: white;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit
+}
+
+header .right, header .left {
+  align-items: center;
+  display: flex;
+}
+
+button.menu {
+  background-color: inherit;
+  border: none;
+}
+
+button.menu img {
+  margin-right: 5px;
+  width: 30px;
+}
+
+header h1 {
+  font-weight: 300;
+}
+
+.sidebar {
+  background-color: rgba(23, 29, 38);
+  box-shadow: 1px 1px 10px 1px rgb(10, 10, 10);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -100vh;
+  transition: 500ms;
+  width: 300px;
+  z-index: 1;
+}
+
+button.menu:focus + .sidebar {
+  left: 0;
+}
+
+.sidebar .user {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+}
+
+.sidebar .user-image {
+  border-radius: 50%;
+  width: 80px;
+}
+
+.sidebar .user-image img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+}

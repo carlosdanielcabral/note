@@ -1,0 +1,13 @@
+.editor-container {
+  margin: 40px;
+}
+
+#editor {
+  height: 400px;
+}
+
+@media screen and (max-width : 600px) {
+  .editor-container {
+    margin: 0;
+  }
+}
