@@ -1,4 +1,4 @@
-header {
+.header {
   background-color: #030912;
   color: white;
   display: flex;
@@ -7,16 +7,16 @@ header {
   padding: 0 20px;
 }
 
-a {
+.header a {
   text-decoration: none;
   color: inherit
 }
 
-header .right, header .left {
+.right, .left {
   align-items: center;
   display: flex;
 }
 
-header h1 {
+.header h1 {
   font-weight: 300;
 }

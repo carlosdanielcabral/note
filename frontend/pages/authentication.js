@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import api from '../services/axiosAPI';
 import styles from '../styles/Authentication.module.css';
 
-const Authentication = ({ history }) => {
+const Authentication = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [registerEmail, setRegisterEmail] = useState('');
   const [registerPassword, setRegisterPassword] = useState('');
   const [registerStatus, setRegisterStatus] = useState('');
+
+  const router = useRouter();
 
   const registerUser = async (e) => {
     const ONE_SECOND = 1000;
@@ -22,7 +25,7 @@ const Authentication = ({ history }) => {
     .then(() => {
       setRegisterStatus('success');
       setTimeout(() => {
-        history.push('/principal');
+        router.push('/home');
       }, ONE_SECOND);
     })
     .catch((err) => {
@@ -38,7 +41,7 @@ const Authentication = ({ history }) => {
     })
     .then((data) => {
       console.log(data);
-      history.push('/principal');
+      router.push('/principal');
     })
     .catch((err) => {
       console.log(err.response.data);
@@ -72,7 +75,7 @@ const Authentication = ({ history }) => {
 
               <button
                 type="submit"
-                className="login"
+                className={ styles.login }
                 onClick={ login }
                 >
                 Entrar

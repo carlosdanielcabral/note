@@ -1,10 +1,12 @@
 import Link from 'next/link';
+import Sidebar from '../Sidebar';
 import styles from './Header.module.css';
 
 const Header = () => {
   return (
-    <header>
+    <header className={ styles.header }>
       <div className={ styles.left }>
+        <Sidebar />
         <section className={ styles.logo }>
           <Link href="/principal" passHref>
             <a>
