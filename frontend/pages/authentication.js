@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import api from '../services/axiosAPI';
-import './index.css';
+import styles from '../styles/Authentication.module.css';
 
 const Authentication = ({ history }) => {
   const [name, setName] = useState('');

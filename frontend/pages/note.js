@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Quill from 'quill';
-import { QUILL_OPTIONS } from '../../constants';
-import Header from '../../components/Header';
-import './index.css';
+import { QUILL_OPTIONS } from '../constants';
+import Header from '../components/Header';
+import styles from './Note.module.css';
 
 const Note = () => {
   const { type } = useParams();

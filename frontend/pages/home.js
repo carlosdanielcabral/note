@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import Header from '../../components/Header';
-import './index.css';
+import Header from '../components/Header';
+import styles from '../styles/Home.module.css';
 
 const Principal = ({ history }) => {
   return (

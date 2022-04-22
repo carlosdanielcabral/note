@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './index.css';
+import styles from '../styles/Index.module.css';
 
 const Home = ({ history }) => {
 
