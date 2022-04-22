@@ -1,15 +1,15 @@
 import { useEffect } from 'react';
 // import { useParams } from 'react-router-dom';
-import Quill from 'quill';
-import { QUILL_OPTIONS } from '../constants';
+// import Quill from 'quill';
+// import { QUILL_OPTIONS } from '../constants';
 import Header from '../components/Header';
-import styles from './Note.module.css';
+import styles from '../styles/Note.module.css';
 
 const Note = () => {
   // const { type } = useParams();
 
   useEffect(() => {
-    const QUILL = new Quill(document.getElementById('editor'), QUILL_OPTIONS);
+    // const QUILL = new Quill(document.getElementById('editor'), QUILL_OPTIONS);
   }, []);
 
   return (
