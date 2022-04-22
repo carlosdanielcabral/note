@@ -1,0 +1,48 @@
+.menu {
+  background-color: inherit;
+  border: none;
+}
+
+.menu img {
+  margin-right: 5px;
+  width: 30px;
+}
+
+.sidebar {
+  background-color: rgba(23, 29, 38);
+  box-shadow: 1px 1px 10px 1px rgb(10, 10, 10);
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: -100vh;
+  transition: 500ms;
+  width: 300px;
+  z-index: 1;
+}
+
+.menu:focus + .sidebar {
+  left: 0;
+}
+
+.user {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 0;
+}
+
+.userImage {
+  border-radius: 50%;
+  width: 80px;
+}
+
+.userImage img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+}
