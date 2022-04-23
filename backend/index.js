@@ -1,24 +1,19 @@
 const express = require('express');
-const User = require('./models/User');
+const rescue = require('express-rescue');
+const User = require('./controllers/User');
+const errorMiddleware = require('./controllers/ErrorController');
+require('dotenv').config;
 
 const app = express();
 
 app.use(express.json());
-// app.get('/users', async (_req, res) => {
-// 	const users = await User.getAll();
-// 	res.status(200).json(users);
-// });
 
-app.post('/users', async (req, res) => {
-	const { name, email, password } = req.body;
-	try {
-		const user = await User.registerUser(name, email, password);
-		res.status(200).json({ message: 'Usuário registrado com sucesso!', user });
-	} catch(error) {
-		console.log(error.message);
-	}
-});
+app
+	.post('/user/register', rescue(User.register))
+	.post('/user/login', rescue(User.login));
 
-const PORT = 3001;
+app.use(errorMiddleware);
+
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, () => console.log(`Aplicação rodando na porta ${PORT}.`));
