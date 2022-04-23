@@ -14,7 +14,7 @@ const Home = () => {
       element.style.animationDuration = "1.5s";
     })
     setTimeout(() => {
-      router.push('/authentication');
+      router.push('/register');
     }, ONE_SECOND);
   }
     

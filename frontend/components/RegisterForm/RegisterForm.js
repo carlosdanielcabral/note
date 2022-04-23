@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from "next/router";
+import Link from 'next/link';
 import api from '../../services/axiosAPI';
 import validateData from '../../utils/validateData';
 import styles from './RegisterForm.module.css';
@@ -72,6 +73,10 @@ const RegisterForm = () => {
           type="password"
           value={password}
         />
+
+        <Link href="/login" passHref>
+          <a>Já possui login?</a>
+        </Link>
 
         <button
           type="submit"

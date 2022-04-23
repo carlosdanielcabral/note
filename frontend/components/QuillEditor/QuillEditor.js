@@ -5,7 +5,7 @@ import { QUILL_OPTIONS } from "../../constants";
 const QuillEditor = () => {
 
   useEffect(() => {
-    const QUILL = new Quill(document.getElementById('editor'), QUILL_OPTIONS);
+    const QUILL = new Quill('#editor', QUILL_OPTIONS);
   }, []);
 
   return (

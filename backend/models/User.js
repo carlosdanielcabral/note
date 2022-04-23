@@ -13,7 +13,7 @@ const register = async (name, email, password) => {
 };
 
 const findByEmail = async (email) => {
-	const query = 'SELECT name, email, image, password FROM noteDB.users WHERE email = ?';
+	const query = 'SELECT user_id, name, email, image, password FROM noteDB.users WHERE email = ?';
 	const [user] = await connection.execute(query, [email]);
 	if (user.length === 0) return null;
 	return user[0];

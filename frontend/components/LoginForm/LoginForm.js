@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from "next/router";
+import Link from 'next/link';
 import api from '../../services/axiosAPI';
 import validateData from '../../utils/validateData';
 import styles from './LoginForm.module.css';
@@ -19,10 +20,11 @@ const LoginForm = () => {
         email: email,
         password: password,
       })
+      localStorage.setItem('user', JSON.stringify(data));
       router.push('/home');
-    } catch({ response: { data } }) {
-      if (data.error.message) {
-        setError(data.error.message);
+    } catch(error) {
+      if (error.response.data.error.message) {
+        setError(error.response.data.error.message);
       }
     }
   }
@@ -40,7 +42,6 @@ const LoginForm = () => {
         else setIsButtonDisable(true);
         break;
     }
-
   }
 
   return (
@@ -62,7 +63,9 @@ const LoginForm = () => {
       />
 
       <span className={ styles.registerOption }>
-        <a href="#register-section">Não está cadastrado?</a>
+        <Link href="/register" passHref>
+          <a>Não está cadastrado?</a> 
+        </Link>
       </span>
 
       <button
