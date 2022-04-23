@@ -1,30 +1,21 @@
-import { useEffect } from 'react';
-// import { useParams } from 'react-router-dom';
-// import Quill from 'quill';
-// import { QUILL_OPTIONS } from '../constants';
 import Header from '../components/Header';
+import dynamic from 'next/dynamic';
+import Head from 'next/head';
 import styles from '../styles/Note.module.css';
+
+const DynamicQuillImport = dynamic(() => import('../components/QuillEditor'), { ssr: false }) ;
 
 const Note = () => {
   // const { type } = useParams();
 
-  useEffect(() => {
-    // const QUILL = new Quill(document.getElementById('editor'), QUILL_OPTIONS);
-  }, []);
-
   return (
     <div className={ styles.notePage }>
+      <Head>
+        <link rel="stylesheet" href="//cdn.quilljs.com/1.3.6/quill.snow.css" />
+      </Head>
       <Header />
-
       <div className={ styles.editorContainer }>
-        <div id="toolbar"></div>
-        <div id="editor">
-          {/* {
-            type === 'new'
-              ? 'Escreva aqui'
-              : null
-          } */}
-        </div>
+        <DynamicQuillImport />
       </div>
     </div>
   );
