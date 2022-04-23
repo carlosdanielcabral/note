@@ -11,7 +11,7 @@ const hasEmailRegistered = async (email) => {
 const validateEmailFormat = async (email) => {
 	if (!email || email.length > 50) return false;
 
-	const emailRegex = /W+@W+.W+/;
+	const emailRegex = /\w+@\w+.\w+/;
 	const isValidEmailFormat = emailRegex.test(email);
 	if (!isValidEmailFormat) return false;
 

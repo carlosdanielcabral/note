@@ -88,6 +88,7 @@
   border-radius: 3px;
   font-size: 14px;
   height: 40px;
+  margin: 10px 0;
   transition: 300ms;
   width: 150px;
 }
@@ -97,26 +98,14 @@
   border: none;
 }
 
-.login {
-  background-color: #15B097;
-  border: 1px solid #15B097;
-  color: white;
+.authenticationPage a {
+  color: rgb(0, 76, 142);
+  font-size: 14px;
+  font-weight: 300;
 }
 
-.login:hover {
-  background-color: inherit;
-  color: #15B097;
-}
-
-.register {
-  background-color: #2660A4;
-  border: 1px solid #2660A4;
-  color: white;
-}
-
-.register:hover {
-  background-color: inherit;
-  color: #2660A4;
+.authenticationPage a:hover {
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 600px) {

@@ -1,0 +1,10 @@
+.register {
+  background-color: #2660A4;
+  border: 1px solid #2660A4;
+  color: white;
+}
+
+.register:hover {
+  background-color: inherit;
+  color: #2660A4;
+}
