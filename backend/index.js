@@ -1,5 +1,6 @@
 const express = require('express');
 const rescue = require('express-rescue');
+const cors = require('cors');
 const User = require('./controllers/User');
 const errorMiddleware = require('./controllers/ErrorController');
 require('dotenv').config;
@@ -7,7 +8,7 @@ require('dotenv').config;
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 app
 	.post('/user/register', rescue(User.register))
 	.post('/user/login', rescue(User.login));

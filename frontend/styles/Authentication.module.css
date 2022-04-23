@@ -92,6 +92,11 @@
   width: 150px;
 }
 
+.authenticationPage button:disabled {
+  background-color: rgb(200, 200, 200);
+  border: none;
+}
+
 .login {
   background-color: #15B097;
   border: 1px solid #15B097;

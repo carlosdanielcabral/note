@@ -19,7 +19,6 @@ const findByEmail = async (email) => {
 	return user[0];
 };
 
-
 module.exports = {
 	findByEmail,
 	register,

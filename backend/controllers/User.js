@@ -28,14 +28,14 @@ const login = async (req, res, next) => {
 	})
 		.validate({ email, password });
 
-	if (error) next(error);
+	if (error) return next(error);
 
 	const loggedUser = await User.login(email, password);
 	if (loggedUser.error) {
-		next(loggedUser.error);
+		return next(loggedUser.error);
 	}
 
-	return res.status(200).json(loggedUser);
+	res.status(200).json(loggedUser);
 };
 
 

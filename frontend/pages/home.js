@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
 import Header from '../components/Header';
 import styles from '../styles/Home.module.css';
 
-const Principal = ({ history }) => {
+const Principal = () => {
+  const router = useRouter();
   return (
     <div className={ styles.principalPage }>
       <Header />
@@ -26,18 +28,12 @@ const Principal = ({ history }) => {
       <button
         type="button"
         className={ styles.noteOptions }
-        onClick={ () => history.push('/note/new') }
+        onClick={ () => router.push('/note') }
       >
         +
       </button>
     </div>
   );
-}
-
-Principal.propTypes = {
-  histpry: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
 }
 
 export default Principal;

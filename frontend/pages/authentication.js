@@ -17,7 +17,7 @@ const Authentication = () => {
   const registerUser = async (e) => {
     const ONE_SECOND = 1000;
     e.preventDefault();
-    api.post('/register', {
+    api.post('/user/register', {
       name,
       email: registerEmail,
       password: registerPassword,
@@ -35,19 +35,48 @@ const Authentication = () => {
 
   const login = async (e) => {
     e.preventDefault();
-    api.post('/login', {
-      email: registerEmail,
-      password: registerPassword,
-    })
-    .then((data) => {
-      console.log(data);
-      router.push('/principal');
-    })
-    .catch((err) => {
-      console.log(err.response.data);
-    });
+    
+    try {
+      const data = await api.post('/user/login', {
+        email: email,
+        password: password,
+      })
+      router.push('/home');
+    } catch(error) {
+      console.log(error.message);
+    }
   }
 
+  const setData = (data, { target: { value } }) => {
+    switch(data) {
+      case 'password':
+        setPassword(value);
+        break;
+      case 'email':
+        setEmail(value);
+        break;
+      case 'name':
+        setName(value);
+        break;
+      case 'registerEmail':
+        setRegisterEmail(value);
+        break;
+      default:
+        setRegisterPassword(value);     
+    }
+  }
+
+  const validateData = (name = null, email, password) => {
+    let isValidName = true;
+    if (name) {
+      isValidName = name.length > 3 && name.length < 50;
+    }
+    const emailRegex = /W+@W+.W+/
+    const isValidEmail = emailRegex.test(email);
+    const isValidPassword = password.length > 5 && password.length < 50;
+
+    return isValidName && isValidEmail && isValidPassword;
+  }
   return (
     <div className={ styles.authenticationPage }>
       <section className={ styles.formsContainer }>
@@ -56,14 +85,14 @@ const Authentication = () => {
             <fieldset>
               <legend>Login</legend>
               <input
-                onChange={ (e) => setEmail(e.target.value) }
+                onChange={ (e) => setData('email', e) }
                 placeholder="Digite seu email"
                 type="email"
                 value={ email }
                 />
 
               <input
-                onChange={ (e) => setPassword(e.target.value) }
+                onChange={ (e) => setData('password', e) }
                 placeholder="Digite sua senha"
                 type="password"
                 value={ password }
@@ -77,6 +106,7 @@ const Authentication = () => {
                 type="submit"
                 className={ styles.login }
                 onClick={ login }
+                disabled={ !validateData(null, email, password) }
                 >
                 Entrar
               </button>
@@ -89,21 +119,21 @@ const Authentication = () => {
             <fieldset>
               <legend>Cadastro</legend>
               <input
-                onChange={ (e) => setName(e.target.value) }
+                onChange={ (e) => setData('name', e) }
                 placeholder="Digite seu nome"
                 type="text"
                 value={ name }
                 />
 
               <input
-                onChange={ (e) => setRegisterEmail(e.target.value) }
+                onChange={ (e) => setData('registerEmail', e) }
                 placeholder="Digite seu email"
                 type="email"
                 value={ registerEmail }
                 />
 
               <input
-                onChange={ (e) => setRegisterPassword(e.target.value) }
+                onChange={ (e) => setData('registerPassword', e) }
                 placeholder="Digite sua senha"
                 type="password"
                 value={ registerPassword }
@@ -113,6 +143,7 @@ const Authentication = () => {
                 type="submit"
                 className={ styles.register }
                 onClick={ registerUser }
+                disabled={ !validateData(name, email, password) }
                 >
                 Cadastrar
               </button>
@@ -123,11 +154,5 @@ const Authentication = () => {
     </div>
   );
 }
-
-Authentication.propTypes = {
-  history: PropTypes.shape({
-    push: PropTypes.func,
-  }).isRequired,
-};
 
 export default Authentication;
