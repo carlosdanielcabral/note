@@ -1,5 +1,14 @@
 const User = require('../services/User');
+const jwt = require('jsonwebtoken');
 const Joi = require('joi');
+require('dotenv').config;
+
+const secret = 'umasenhaqualquer';
+
+const jwtConfig = {
+	expiresIn: '8h',
+	algorithm: 'HS256',
+};
 
 const register = async (req, res, next) => {
 	const { name, email, password } = req.body;
@@ -31,11 +40,14 @@ const login = async (req, res, next) => {
 	if (error) return next(error);
 
 	const loggedUser = await User.login(email, password);
+
 	if (loggedUser.error) {
 		return next(loggedUser.error);
 	}
 
-	res.status(200).json(loggedUser);
+	const token = jwt.sign({ data: loggedUser }, secret, jwtConfig);
+
+	res.status(200).json({ token });
 };
 
 

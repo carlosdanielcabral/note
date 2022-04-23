@@ -3,6 +3,7 @@ const rescue = require('express-rescue');
 const cors = require('cors');
 const User = require('./controllers/User');
 const errorMiddleware = require('./controllers/ErrorController');
+const validateJWT = require('./auth/validateJWT');
 require('dotenv').config;
 
 const app = express();
