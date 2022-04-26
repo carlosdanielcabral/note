@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom';
-import styles from '../styles/Index.module.css';
+import '../styles/Index.css';
 
 const Home = () => {
   const { push } = useHistory();
@@ -17,7 +17,7 @@ const Home = () => {
     
 
   return(
-    <div className={ styles.indexPage }>
+    <div className="indexPage">
       <section>
         <h1 className="fade-out">Note</h1>
         <h2 className="fade-out">O amigo de sua memória</h2>

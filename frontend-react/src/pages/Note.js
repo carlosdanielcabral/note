@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import QuillEditor from '../components/QuillEditor';
-import "../styles/Note.module.css";
+import "../styles/Note.css";
 
 const Note = () => (
   <div className="note-page">

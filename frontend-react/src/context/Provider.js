@@ -3,10 +3,13 @@ import AppContext from './AppContext';
 
 const Provider = ({ children }) => {
   const [authorized, setAuthorized] = useState(false);
+  const [user, setUser] = useState({});
   
   const context = {
     authorized,
     setAuthorized,
+    user,
+    setUser,
   };
 
   return (

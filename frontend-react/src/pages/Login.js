@@ -1,9 +1,9 @@
 import LoginForm from "../components/LoginForm";
-import styles from "../styles/Authentication.module.css";
+import "../styles/Authentication.css";
 
 const Login = () => (
-  <div className={styles.authenticationPage}>
-    <section className={styles.left}>
+  <div className="authenticationPage">
+    <section className="left">
       <LoginForm />
     </section>
   </div>

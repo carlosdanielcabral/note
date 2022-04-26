@@ -12,7 +12,7 @@ import NotAuthorized from './pages/NotAuthorized';
 import './App.css';
 
 function App() {
-  const { authorized, setAuthorized } = useContext(AppContext);
+  const { authorized, setAuthorized, setUser } = useContext(AppContext);
   useEffect(() => {
     const getAuth = async () => {
       const token = localStorage.getItem('token');
@@ -23,6 +23,7 @@ function App() {
             authorization: token,
           }
         });
+        setUser(response.data);
         setAuthorized(true);
       } catch (error) {
         console.log(error);
