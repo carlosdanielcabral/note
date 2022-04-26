@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
 import api from '../../services/axiosAPI';
 import validateData from '../../utils/validateData';
 import styles from './RegisterForm.module.css';
 
 const RegisterForm = () => {
+  const { setAuthorized } = useContext(AppContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,8 +22,10 @@ const RegisterForm = () => {
       const response = await api.post('/user/register', {
         name, email, password
       });
+      setAuthorized(true);
       setTimeout(() => push('/home'), ONE_SECOND);
     } catch({ response: { data } }) {
+      setAuthorized(false);
       if (data.error.message) {
         setError(data.error.message);
       }

@@ -1,5 +1,5 @@
 export const QUILL_OPTIONS = {
-  debug: 'info',
+  debug: 'error',
   modules: {
     toolbar: true,
   },

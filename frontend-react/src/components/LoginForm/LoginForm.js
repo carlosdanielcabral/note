@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import api from '../../services/axiosAPI';
+import AppContext from '../../context/AppContext';
 import validateData from '../../utils/validateData';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
+  const { setAuthorized } = useContext(AppContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isButtonDisable, setIsButtonDisable] = useState(true);
@@ -19,9 +21,12 @@ const LoginForm = () => {
         email: email,
         password: password,
       })
-      localStorage.setItem('user', JSON.stringify(data));
+      localStorage.setItem('token', data.data.token);
+      localStorage.setItem('user', JSON.stringify(data.data.user));
+      setAuthorized(true);
       push('/home');
     } catch(error) {
+      setAuthorized(false);
       if (error.response.data.error.message) {
         setError(error.response.data.error.message);
       }
