@@ -29,6 +29,11 @@ const register = async (req, res, next) => {
 	return res.status(201).json(newUser);
 };
 
+const getUser = async (req, res) => {
+	const { user } = req;
+	res.status(200).json(user);
+};
+
 const login = async (req, res, next) => {
 	const { email, password } = req.body;
 	const { error } = Joi.object({
@@ -47,11 +52,12 @@ const login = async (req, res, next) => {
 
 	const token = jwt.sign({ data: loggedUser }, secret, jwtConfig);
 
-	res.status(200).json({ token });
+	res.status(200).json({ token, user: loggedUser });
 };
 
 
 module.exports = {
 	register,
 	login,
+	getUser,
 };

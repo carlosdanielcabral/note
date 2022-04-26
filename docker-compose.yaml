@@ -1,0 +1,39 @@
+version: '3'
+services:
+  database:
+    build: './backend/database'
+    ports:
+      - 3306:3306
+    networks:
+      - database
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - db-volume:/var/lib/mysql
+  backend:
+    build: './backend/api'
+    ports:
+      - 3001:3001
+    depends_on:
+      - database
+    networks:
+      - database
+      - backend
+      - frontend
+    environment:
+      - MYSQL_HOST=localhost
+      - MYSQL_DBNAME=note
+  frontend:
+    build: './frontend-react'
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+    networks:
+      - frontend
+networks:
+  backend:
+  frontend:
+  database:
+volumes:
+  db-volume:

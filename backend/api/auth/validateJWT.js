@@ -12,6 +12,7 @@ const validateJWT = async (req, res, next) => {
 		const decoded = jwt.verify(token, secret);
 		const user = await User.findByEmail(decoded.data.email);
 		if (!user) res.status(401).json({ message: 'Erro ao procurar usuário do token' });
+		req.user = user;
 		next();
 	} catch(error) {
 		next(error);

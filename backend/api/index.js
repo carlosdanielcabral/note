@@ -2,6 +2,7 @@ const express = require('express');
 const rescue = require('express-rescue');
 const cors = require('cors');
 const User = require('./controllers/User');
+const Note = require('./controllers//Note');
 const errorMiddleware = require('./controllers/ErrorController');
 const validateJWT = require('./auth/validateJWT');
 require('dotenv').config;
@@ -12,7 +13,9 @@ app.use(express.json());
 app.use(cors());
 app
 	.post('/user/register', rescue(User.register))
-	.post('/user/login', rescue(User.login));
+	.post('/user/login', rescue(User.login))
+	.get('/user', validateJWT, rescue(User.getUser))
+	.post('/note/save', validateJWT, rescue(Note.saveNote));
 
 app.use(errorMiddleware);
 

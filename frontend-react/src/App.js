@@ -40,7 +40,7 @@ function App() {
       <Route path="/home" render={ () =>
         authorized ? <Home /> : <NotAuthorized /> 
       }/>
-      <Route path="/note" component={ Note } />
+      <Route path="/note" render={ () => authorized ? <Note /> : <NotAuthorized /> } />
     </Switch>
   );
 }

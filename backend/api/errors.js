@@ -15,6 +15,14 @@ const errors = {
 		code: 'invalidEmailOrPassword',
 		message: 'Email ou senha inválidos'
 	},
+	invalidUserId: {
+		code: 'invalidUserId',
+		message: 'Usuário não fornecido',
+	},
+	invalidNoteId: {
+		code: 'invalidNoteId',
+		message: 'Id da nota inválido',
+	}
 };
 
 module.exports = errors;

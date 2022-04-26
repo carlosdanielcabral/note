@@ -1,0 +1,39 @@
+const connection = require('./connection');
+
+const saveNote = async (title, content, userId) => {
+	const query = 'INSERT INTO noteDB.notes (title, content, user_id) values (?, ?, ?)';
+	const [note] = await connection.execute(query, [title, content, userId]);
+	return note;
+};
+
+const getAllByUserId = async (userId) => {
+	const query = 'SELECT * FROM noteDB.notes WHERE user_id = ?';
+	const [notes] = await connection.execute(query, [userId]);
+	return notes;
+};
+
+const getById = async (noteId) => {
+	const query = 'SELECT * FROM noteDB.notes WHERE note_id = ?';
+	const [note] = await connection.execute(query, [noteId]);
+	return note;
+};
+
+const updateNote = async (noteId, title, content) => {
+	const query = 'UPDATE noteDB.notes SET title = ?, content = ?, update_date = CURRENT_TIMESTAMP() WHERE note_id = ?';
+	const [note] = await connection.execute(query, [title, content, noteId]);
+	return note;
+};
+
+const deleteNote = async (noteId) => {
+	const query = 'DELETE FROM note.notes WHERE note_id = ?';
+	const [note] = await connection.execute(query, [noteId]);
+	return note;
+};
+
+module.exports = {
+	deleteNote,
+	getAllByUserId,
+	getById,
+	saveNote,
+	updateNote,
+};
