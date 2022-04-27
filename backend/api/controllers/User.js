@@ -36,9 +36,10 @@ const getUser = async (req, res) => {
 
 const login = async (req, res, next) => {
 	const { email, password } = req.body;
+
 	const { error } = Joi.object({
-		email: Joi.string().not().empty(),
-		password: Joi.string().not().empty(),
+		email: Joi.string().not().empty().required(),
+		password: Joi.string().not().empty().required(),
 	})
 		.validate({ email, password });
 

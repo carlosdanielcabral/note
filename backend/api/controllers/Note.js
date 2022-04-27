@@ -26,7 +26,19 @@ const getAllNotesByUserId = async (req, res, next) => {
 	return res.status(201).json(notes);
 };
 
+const getById = async (req, res, next) => {
+	const { id } = req.params;
+
+	if(!id || Number.isNaN(Number(id))) return next({ error: 'Id da nota inválido' });
+
+	const note = Note.getById(id);
+
+	if (!note) return next({ error: 'Nota não encontrada' });
+	return res.status(201).json(note);
+};
+
 module.exports = {
 	getAllNotesByUserId,
+	getById,
 	saveNote,
 };

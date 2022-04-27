@@ -43,7 +43,7 @@ const Principal = () => {
               ? (
                 notes.map((note) => <NoteCard note={ note } key={ note.note_id } />)
                 )
-              : 'Carregando'
+              : ''
           }
         </section>
 
