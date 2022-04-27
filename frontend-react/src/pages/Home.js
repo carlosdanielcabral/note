@@ -1,9 +1,32 @@
+import { useContext, useEffect, useState  } from 'react';
 import { useHistory } from 'react-router-dom';
+import api from '../services/axiosAPI';
+import AppContext from '../context/AppContext';
 import Header from '../components/Header';
 import '../styles/Home.css';
+import NoteCard from '../components/NoteCard/NoteCard';
 
 const Principal = () => {
+  const { user } = useContext(AppContext);
+  const [notes, setNotes] = useState([]);
+
   const { push } = useHistory();
+
+  useEffect(() => {
+    const getNotes = async () => {
+      const token = localStorage.getItem('token');
+      try {
+        const notes = await api.get('/note', { headers: {
+          authorization: token,
+        } });
+        setNotes(notes.data);
+      } catch(error) {
+        console.log(error);
+      }
+    }
+    getNotes();
+  }, [setNotes]);
+
   return (
     <div className="principalPage">
       <Header />
@@ -15,7 +38,13 @@ const Principal = () => {
         </select>
 
         <section className="notes">
-
+          {
+            notes.length > 0
+              ? (
+                notes.map((note) => <NoteCard note={ note } key={ note.note_id } />)
+                )
+              : 'Carregando'
+          }
         </section>
 
         <section className="dailyPhrase">

@@ -12,9 +12,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app
+	.get('/user', validateJWT, rescue(User.getUser))
 	.post('/user/register', rescue(User.register))
 	.post('/user/login', rescue(User.login))
-	.get('/user', validateJWT, rescue(User.getUser))
+	.get('/note', validateJWT, rescue(Note.getAllNotesByUserId))
 	.post('/note/save', validateJWT, rescue(Note.saveNote));
 
 app.use(errorMiddleware);

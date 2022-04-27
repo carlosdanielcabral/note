@@ -17,6 +17,16 @@ const saveNote = async (req, res, next) => {
 	return res.status(201).json(note);
 };
 
+const getAllNotesByUserId = async (req, res, next) => {
+	const { user } = req;
+
+	const notes = await Note.getAllNotesByUserId(user.user_id);
+	if (notes.error) return next(notes.error);
+
+	return res.status(201).json(notes);
+};
+
 module.exports = {
+	getAllNotesByUserId,
 	saveNote,
 };

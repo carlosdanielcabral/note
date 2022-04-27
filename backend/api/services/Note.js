@@ -7,7 +7,10 @@ const saveNote = async (title = '', content = '', userId) => {
 	return Note.saveNote(title, content, userId);
 };
 
-const getAll = async () => Note.getAll();
+const getAllNotesByUserId = async (userId) => {
+	if (!userId) return { error: errors.invalidUserId }; 
+	return Note.getAllByUserId(userId);
+};
 
 const getById = async (noteId) => {
 	if (!noteId) return { error: errors.invalidNoteId };
@@ -15,7 +18,7 @@ const getById = async (noteId) => {
 };
 
 module.exports = {
-	getAll,
+	getAllNotesByUserId,
 	getById,
 	saveNote,
 };
