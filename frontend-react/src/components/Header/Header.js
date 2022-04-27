@@ -8,7 +8,7 @@ const Header = () => {
       <div className={ styles.left }>
         <Sidebar />
         <section className={ styles.logo }>
-          <Link to="/principal">
+          <Link to="/home">
               <h1>Note</h1>
           </Link>
         </section>

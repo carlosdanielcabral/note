@@ -7,7 +7,8 @@ import Index from './pages/Index';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home';
-import Note from './pages/Note';
+import New from './pages/Note/New';
+import View from './pages/Note/View';
 import NotAuthorized from './pages/NotAuthorized';
 import './App.css';
 
@@ -31,7 +32,7 @@ function App() {
       }
     }
     getAuth();
-  }, [setAuthorized]);
+  }, [setAuthorized, setUser]);
 
   return (
     <Switch>
@@ -41,7 +42,8 @@ function App() {
       <Route path="/home" render={ () =>
         authorized ? <Home /> : <NotAuthorized /> 
       }/>
-      <Route path="/note" render={ () => authorized ? <Note /> : <NotAuthorized /> } />
+      <Route path="/note/new" render={ () => authorized ? <New /> : <NotAuthorized /> } />
+      <Route path="/note/view/:id" render={ () => authorized ? <View /> : <NotAuthorized /> } />
     </Switch>
   );
 }

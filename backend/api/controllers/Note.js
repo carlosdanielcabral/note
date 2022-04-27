@@ -7,7 +7,7 @@ const saveNote = async (req, res, next) => {
 		userId: Joi.number().required(),
 		content: Joi.required(),
 	})
-		.validate({ userId: Number(userId) });
+		.validate({ userId: Number(userId), content });
 	
 	if (error) return next(error);
 

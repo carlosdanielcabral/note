@@ -56,7 +56,7 @@ const Principal = () => {
       <button
         type="button"
         className="noteOptions"
-        onClick={ () => push('/note') }
+        onClick={ () => push('/note/new') }
       >
         +
       </button>

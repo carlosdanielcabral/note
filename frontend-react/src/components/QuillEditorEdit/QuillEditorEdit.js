@@ -1,27 +1,27 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import AppContext from "../../context/AppContext";
+import parser from "html-react-parser";
 import Quill from "quill";
 import api from '../../services/axiosAPI';
 import { QUILL_OPTIONS } from "../../constants";
 
-const QuillEditor = () => {
-  const { user } = useContext(AppContext);
+const QuillEditorEdit = ({ note, edit }) => {
   const [success, setSuccess] = useState(false);
   const { push } = useHistory();
 
   useEffect(() => {
-    const QUILL = new Quill('#editor', { theme: QUILL_OPTIONS.theme, readOnly: false });
+    const QUILL = new Quill('#editor', { theme: QUILL_OPTIONS.theme, readOnly: edit });
   }, []);
 
-  const saveNote = async () => {
-    const content = String(document.getElementById('editor').firstChild.innerHTML);
+  const editNote = async () => {
+    const content = document.getElementById('editor').firstChild.innerHTML;
     const token = localStorage.getItem('token');
-  
+
     try {
-      const response = await api.post('/note/save', {
+      const response = await api.put('/note', {
         content,
-        userId: String(user.user_id),
+        noteId: note.note_id,
       }, {
         headers: {
           authorization: token,
@@ -31,31 +31,43 @@ const QuillEditor = () => {
       setTimeout(() => push('/home'), 3000);
     } catch(error) {
       console.log(`Error: ${error}`);
-    }
-  };
+    } 
+  }
 
   return (
     <>
       {
         success && (
           <div className="success-card">
-            Nota salva!
+            Nota atualizada!
           </div>
         )
       }
               <div id="editor">
-                Digite aqui...
+                { parser(note.content) }
               </div>
 
               <button
                 className="save-note"
-                onClick={ saveNote }
+                onClick={ editNote }
               >
-                Salvar
+                Editar
               </button>
 
     </>
   );
 };
 
-export default QuillEditor;
+QuillEditorEdit.propTypes = {
+  note: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ])).isRequired,
+  edit: PropTypes.bool,
+}
+
+QuillEditorEdit.defaultProps = {
+  edit: true,
+}
+
+export default QuillEditorEdit;
