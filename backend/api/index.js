@@ -17,6 +17,7 @@ app
 	.post('/user/login', rescue(User.login))
 	.post('/note/save', validateJWT, rescue(Note.saveNote))
 	.get('/note/:id', validateJWT, rescue(Note.getById))
+	.delete('/note/:id', validateJWT, rescue(Note.deleteNote))
 	.put('/note/', validateJWT, rescue(Note.updateNote))
 	.get('/note', validateJWT, rescue(Note.getAllNotesByUserId));
 

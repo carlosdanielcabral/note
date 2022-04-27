@@ -62,9 +62,27 @@ const updateNote = async (req, res, next) => {
 	return res.status(200).json({ message: 'Nota atualizada com sucesso' });
 };
 
+const deleteNote = async (req, res, next) => {
+	const { id } = req.params;
+
+	const { error } = Joi.object({
+		id: Joi.number().required(),
+	})
+		.validate({ id: Number(id) });
+
+	if (error) return next(error);
+
+	const note = await Note.deleteNote(id);
+
+	if (note.error) return next(note.error);
+
+	return res.status(200).json({ message: 'Nota deletada com sucesso.' });
+};
+
 module.exports = {
 	getAllNotesByUserId,
 	getById,
 	saveNote,
 	updateNote,
+	deleteNote,
 };

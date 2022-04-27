@@ -29,9 +29,20 @@ const updateNote = async (noteId, content) => {
 	return Note.updateNote(noteId, content);
 };
 
+const deleteNote = async (noteId) => {
+	if (!noteId) return { error: errors.invalidNoteId };
+
+	const note = await Note.getById(noteId);
+
+	if (!note || note.length === 0) return { error: errors.invalidNoteId };
+
+	return Note.deleteNote(noteId);
+};
+
 module.exports = {
 	getAllNotesByUserId,
 	getById,
 	saveNote,
 	updateNote,
+	deleteNote,
 };

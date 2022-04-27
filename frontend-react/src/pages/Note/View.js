@@ -20,7 +20,6 @@ const View = () => {
         setHasNote(true);
       } catch(error) {
         setHasNote(false);
-        console.log(error);
       }
     }
     getNote();

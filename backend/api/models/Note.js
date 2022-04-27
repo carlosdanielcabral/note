@@ -25,7 +25,7 @@ const updateNote = async (noteId, content) => {
 };
 
 const deleteNote = async (noteId) => {
-	const query = 'DELETE FROM note.notes WHERE note_id = ?';
+	const query = 'DELETE FROM noteDB.notes WHERE note_id = ?';
 	const [note] = await connection.execute(query, [noteId]);
 	return note;
 };

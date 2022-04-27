@@ -43,7 +43,7 @@ function App() {
         authorized ? <Home /> : <NotAuthorized /> 
       }/>
       <Route path="/note/new" render={ () => authorized ? <New /> : <NotAuthorized /> } />
-      <Route path="/note/view/:id" render={ () => authorized ? <View /> : <NotAuthorized /> } />
+      <Route path="/note/:id" render={ () => authorized ? <View /> : <NotAuthorized /> } />
     </Switch>
   );
 }
