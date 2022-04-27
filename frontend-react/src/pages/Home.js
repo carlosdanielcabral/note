@@ -27,6 +27,19 @@ const Principal = () => {
     getNotes();
   }, [setNotes]);
 
+  const deleteNote = async (id) => {
+    const token = localStorage.getItem('token');
+    try {
+      api.delete(`/note/${id}`, {
+        headers: { authorization: token }
+      });
+      const newNotes = notes.filter((note) => note.note_id !== id);
+      setNotes(newNotes);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <div className="principalPage">
       <Header />
@@ -41,7 +54,7 @@ const Principal = () => {
           {
             notes.length > 0
               ? (
-                notes.map((note) => <NoteCard note={ note } key={ note.note_id } />)
+                notes.map((note) => <NoteCard note={ note } key={ note.note_id } deleteNote={ deleteNote } />)
                 )
               : ''
           }

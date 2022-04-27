@@ -1,22 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import parser from 'html-react-parser';
-import api from '../../services/axiosAPI';
 import styles from './NoteCard.module.css';
 
-const NoteCard = ({ note }) => {
+const NoteCard = ({ note, deleteNote }) => {
   const [isDeleteVisible, setIsDeleteVisible] = useState(false);
-
-  const deleteNote = async () => {
-    const token = localStorage.getItem('token');
-    try {
-      api.delete(`/note/${note.note_id}`, {
-        headers: { authorization: token }
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <div className={ styles.noteCard }>
@@ -33,7 +21,7 @@ const NoteCard = ({ note }) => {
             isDeleteVisible && (
               <div className="delete-options">
                 <p>Tem certeza que deseja excluir esta nota?</p>
-                <button onClick={ deleteNote } type="button">
+                <button onClick={ () => deleteNote(note.note_id) } type="button">
                   Sim
                 </button>
                 <button onClick={ () => setIsDeleteVisible(false) }>
