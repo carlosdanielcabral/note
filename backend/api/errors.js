@@ -22,6 +22,14 @@ const errors = {
 	invalidNoteId: {
 		code: 'badRequest',
 		message: 'Id da nota inválido',
+	},
+	invalidNoteContent: {
+		code: 'badRequest',
+		message: 'Conteúdo da nota inválido'
+	},
+	noteNotFound: {
+		code: 'notFound',
+		message: 'Nota não encontrada',
 	}
 };
 

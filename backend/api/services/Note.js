@@ -14,11 +14,24 @@ const getAllNotesByUserId = async (userId) => {
 
 const getById = async (noteId) => {
 	if (!noteId) return { error: errors.invalidNoteId };
-	return Note.getById(noteId);
+	const note = await Note.getById(noteId);
+	if (!note || note.length === 0) return { error: errors.noteNotFound };
+	return note;
+};
+
+const updateNote = async (noteId, content) => {
+	if (!noteId) return { error: errors.invalidNoteId };
+	if (!content) return { error: errors.invalidNoteContent };
+	const note = await Note.getById(noteId);
+
+	if (!note || note.length === 0) return { error: errors.invalidNoteId };
+
+	return Note.updateNote(noteId, content);
 };
 
 module.exports = {
 	getAllNotesByUserId,
 	getById,
 	saveNote,
+	updateNote,
 };

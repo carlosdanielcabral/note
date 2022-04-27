@@ -7,7 +7,7 @@ const errorMiddleware = (err, _req, res, _next) => {
 		notFound: 404,
 	};
 	const status = statusByErrorCode[err.code];
-	if (!status) return res.status(500).json({ error: { message: "Internal Server Error" } });
+	if (!status) return res.status(500).json({ error: { message: 'Internal Server Error' } });
 	return res.status(status).json({ error: { message: err.message } });
 };
 

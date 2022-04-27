@@ -18,9 +18,9 @@ const getById = async (noteId) => {
 	return note;
 };
 
-const updateNote = async (noteId, title, content) => {
-	const query = 'UPDATE noteDB.notes SET title = ?, content = ?, update_date = CURRENT_TIMESTAMP() WHERE note_id = ?';
-	const [note] = await connection.execute(query, [title, content, noteId]);
+const updateNote = async (noteId, content) => {
+	const query = 'UPDATE noteDB.notes SET content = ?, update_date = CURRENT_TIMESTAMP() WHERE note_id = ?';
+	const [note] = await connection.execute(query, [content, noteId]);
 	return note;
 };
 

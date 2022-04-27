@@ -4,9 +4,10 @@ const Joi = require('joi');
 const saveNote = async (req, res, next) => {
 	const { title, content, userId } = req.body;
 	const { error } = Joi.object({
-		userId: Joi.string().required(),
+		userId: Joi.number().required(),
+		content: Joi.required(),
 	})
-		.validate({ userId });
+		.validate({ userId: Number(userId) });
 	
 	if (error) return next(error);
 
@@ -28,16 +29,42 @@ const getAllNotesByUserId = async (req, res, next) => {
 
 const getById = async (req, res, next) => {
 	const { id } = req.params;
-	if(!id || Number.isNaN(Number(id))) return next({ code: 'notFound', message: 'Id da nota inválido' });
 
-	const note = Note.getById(id);
+	const { error } = Joi.object({
+		id: Joi.number().not().empty().required(),
+	})
+		.validate({ id });
 
-	if (!note) return next({ code: 'notFound', message: 'Nota não encontrada' });
+	if (error) return next(error);
+
+	const note = await Note.getById(id);
+	
+	if (note.error) return next(note.error);
+
 	return res.status(200).json(note);
+};
+
+const updateNote = async (req, res, next) => {
+	const { noteId, content } = req.body;
+
+	const { error } = Joi.object({
+		noteId: Joi.number().not().empty().required(),
+		content: Joi.string().required(),
+	})
+		.validate({ noteId: Number(noteId), content });
+	
+	if (error) next(error);
+
+	const note = await Note.updateNote(noteId, content);
+
+	if (note.error) return next(note.error);
+	
+	return res.status(200).json({ message: 'Nota atualizada com sucesso' });
 };
 
 module.exports = {
 	getAllNotesByUserId,
 	getById,
 	saveNote,
+	updateNote,
 };
