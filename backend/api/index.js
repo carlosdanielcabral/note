@@ -15,8 +15,9 @@ app
 	.get('/user', validateJWT, rescue(User.getUser))
 	.post('/user/register', rescue(User.register))
 	.post('/user/login', rescue(User.login))
-	.get('/note', validateJWT, rescue(Note.getAllNotesByUserId))
-	.post('/note/save', validateJWT, rescue(Note.saveNote));
+	.post('/note/save', validateJWT, rescue(Note.saveNote))
+	.get('/note/:id', validateJWT, rescue(Note.getById))
+	.get('/note', validateJWT, rescue(Note.getAllNotesByUserId));
 
 app.use(errorMiddleware);
 

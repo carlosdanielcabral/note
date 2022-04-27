@@ -4,23 +4,23 @@ const errors = {
 		message: 'Email já cadastrado ou inválido',
 	},
 	invalidPassword: {
-		code: 'invalidPassword',
+		code: 'badRequest',
 		message: 'Senha inválida',
 	},
 	invalidName: {
-		code: 'invalidName',
+		code: 'badRequest',
 		message: 'Nome inválido',
 	},
 	invalidEmailOrPassword: {
-		code: 'invalidEmailOrPassword',
+		code: 'badRequest',
 		message: 'Email ou senha inválidos'
 	},
 	invalidUserId: {
-		code: 'invalidUserId',
+		code: 'badRequest',
 		message: 'Usuário não fornecido',
 	},
 	invalidNoteId: {
-		code: 'invalidNoteId',
+		code: 'badRequest',
 		message: 'Id da nota inválido',
 	}
 };

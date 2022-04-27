@@ -23,18 +23,17 @@ const getAllNotesByUserId = async (req, res, next) => {
 	const notes = await Note.getAllNotesByUserId(user.user_id);
 	if (notes.error) return next(notes.error);
 
-	return res.status(201).json(notes);
+	return res.status(200).json(notes);
 };
 
 const getById = async (req, res, next) => {
 	const { id } = req.params;
-
-	if(!id || Number.isNaN(Number(id))) return next({ error: 'Id da nota inválido' });
+	if(!id || Number.isNaN(Number(id))) return next({ code: 'notFound', message: 'Id da nota inválido' });
 
 	const note = Note.getById(id);
 
-	if (!note) return next({ error: 'Nota não encontrada' });
-	return res.status(201).json(note);
+	if (!note) return next({ code: 'notFound', message: 'Nota não encontrada' });
+	return res.status(200).json(note);
 };
 
 module.exports = {
