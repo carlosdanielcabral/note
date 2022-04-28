@@ -7,7 +7,7 @@ import { Tokenizer } from "htmlparser2";
 const User = () => {
   const { user } = useContext(AppContext);
   const [name, setName] = useState(user.name);
-  const [readOnly, setReadOnly] = useState(true);
+  const [readOnly, setReadOnly] = useState(false);
   const [image, setImage] = useState('');
 
   const submitImage = async (e) => {
@@ -15,6 +15,7 @@ const User = () => {
     const token = localStorage.getItem('token');
     const formData = new FormData();
     formData.append('image', image);
+    formData.append('userName', name);
     console.log(formData);
     api.put('/user', formData, {
       headers: {
@@ -35,7 +36,7 @@ const User = () => {
               <div className="profile-image">
                 <img src={ user.image ? user.image : defaultImage} alt="User" />
               </div>
-              <input type="file" name="profile_image" onChange={ (e) => setImage(e.target.files[0]) }/>
+              <input type="file" name="profile_image" onChange={ (e) => setImage(e.target.files[0]) } />
             </section>
 
             <section>
@@ -47,6 +48,7 @@ const User = () => {
                 value={ name }
                 onChange={ (e) => setName(e.target.value) }
                 readOnly={ readOnly }
+                name="user_name"
               />
             </section>
           </section>

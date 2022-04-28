@@ -6,11 +6,23 @@ const Note = require('./controllers//Note');
 const errorMiddleware = require('./controllers/ErrorController');
 const validateJWT = require('./auth/validateJWT');
 const multer = require('multer');
-const upload = multer({ dest: './public/images/' });
 require('dotenv').config;
 
 const app = express();
 
+// Função retirada da documentação: http://expressjs.com/en/resources/middleware/multer.html
+const storage = multer.diskStorage({
+	destination: function (req, file, cb) {
+		cb(null, 'public/images/');
+	},
+	filename: function (req, file, cb) {
+		const extension = file.originalname.split('.')[1];
+		const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+		cb(null, `${file.fieldname}-${uniqueSuffix}.${extension}`);
+	}
+});
+
+const upload = multer({ storage: storage });
 app.use(express.json());
 app.use(cors());
 app
@@ -26,7 +38,7 @@ app
 
 app.use(errorMiddleware);
 
-app.use(express.static('/public/'));
+app.use('/public', express.static('public'));
 
 const PORT = process.env.PORT || 3001;
 

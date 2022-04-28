@@ -59,8 +59,8 @@ const login = async (req, res, next) => {
 };
 
 const updateUser = async (req, res, next) => {
-	const { image } = req.body;
-	console.log(req.file);
+	const { userName } = req.body;
+	const { path } = req.file;
 	// const { user: { user_id: id } } = req.user;
 	// const { error } = Joi.object({
 	// 	image: Joi.string().required(),
@@ -70,7 +70,7 @@ const updateUser = async (req, res, next) => {
 	// if (error) return next(error);
 	
 	// const response = await User.updateUser(image, id);
-	// return res.status(200).json(response);
+	return res.status(200).json({ image: `http://localhost:3001/${path}` });
 };
 
 module.exports = {
