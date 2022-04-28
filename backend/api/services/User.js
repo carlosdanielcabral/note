@@ -55,7 +55,10 @@ const updateUser = async (image, userName, email, password, id) => {
 	if (!isValidName) return { error: errors.invalidName };
 	if (!isValidPassword) return { error: errors.invalidEmailOrPassword };
 	
-	await User.updateUser(image, userName, email, password, id);
+	const user = await User.findByEmail(email);
+
+	const userImage = image ? image : user.image;
+	await User.updateUser(userImage, userName, email, password, id);
 
 	const newUser = await hasEmailRegistered(email);
 	return newUser;

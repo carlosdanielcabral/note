@@ -9,6 +9,8 @@ const Sidebar = () => {
   const { user } = useContext(AppContext);
   const { push } = useHistory();
 
+  const defaultImage = "/../../assets/img/profile-picture-default.png"
+
   return (
     <section className={ styles.sidebarContainer }>
       <button type="button" className={ styles.menu }>
@@ -18,7 +20,7 @@ const Sidebar = () => {
       <div className={ styles.sidebar }>
         <section className={ styles.user }>
           <div className={ styles.userImage }>
-            <img src="/../../assets/img/profile-picture-default.png" alt="User" />
+            <img src={ user.image ? user.image : defaultImage } alt="User" />
           </div>
           <h2>{ user.name }</h2>
           <button type="button" onClick={ () => push('/user') }>

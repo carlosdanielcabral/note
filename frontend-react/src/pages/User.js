@@ -5,7 +5,7 @@ import api from "../services/axiosAPI";
 import '../styles/User.css';
 
 const User = () => {
-  const { user } = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
@@ -20,12 +20,19 @@ const User = () => {
     formData.append('userName', name);
     formData.append('email', email);
     formData.append('password', password);
-    api.put('/user', formData, {
-      headers: {
-        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
-        authorization: token,
-      }
-    })
+    try {
+      const response = await api.put('/user', formData, {
+        headers: {
+          'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+          authorization: token,
+        }
+      });
+      setName(response.data.name);
+      setPassword(response.data.password);
+      setUser(response.data);
+    } catch(error) {
+      console.log(error);
+    }
   }
   const defaultImage = "/../../assets/img/profile-picture-default.png"
   return (
