@@ -1,6 +1,8 @@
 const User = require('../services/User');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
+const multer = require('multer');
+const upload = multer({ dest: './public/images/' });
 require('dotenv').config;
 
 const secret = 'umasenhaqualquer';
@@ -56,9 +58,24 @@ const login = async (req, res, next) => {
 	res.status(200).json({ token, user: loggedUser });
 };
 
+const updateUser = async (req, res, next) => {
+	const { image } = req.body;
+	console.log(req.file);
+	// const { user: { user_id: id } } = req.user;
+	// const { error } = Joi.object({
+	// 	image: Joi.string().required(),
+	// })
+	// 	.validate({ image });
+
+	// if (error) return next(error);
+	
+	// const response = await User.updateUser(image, id);
+	// return res.status(200).json(response);
+};
 
 module.exports = {
 	register,
 	login,
 	getUser,
+	updateUser,
 };

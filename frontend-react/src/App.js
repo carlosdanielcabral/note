@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import New from './pages/Note/New';
 import View from './pages/Note/View';
+import User from './pages/User';
 import NotAuthorized from './pages/NotAuthorized';
 import './App.css';
 
@@ -44,6 +45,7 @@ function App() {
       }/>
       <Route path="/note/new" render={ () => authorized ? <New /> : <NotAuthorized /> } />
       <Route path="/note/:id" render={ () => authorized ? <View /> : <NotAuthorized /> } />
+      <Route path="/user" render={ () => authorized ? <User /> : <NotAuthorized /> } />
     </Switch>
   );
 }

@@ -1,8 +1,12 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AppContext from '../../context/AppContext';
 import Sidebar from '../Sidebar';
 import styles from './Header.module.css';
 
 const Header = () => {
+  const { user } = useContext(AppContext);
+
   return (
     <header className={ styles.header }>
       <div className={ styles.left }>
@@ -16,7 +20,7 @@ const Header = () => {
 
       <div className={ styles.right }>
         <section className={ styles.userName }>
-          Usuário
+          { user.name }
         </section>
       </div>
     </header>

@@ -47,7 +47,12 @@ const login = async (email, password) => {
 	return user;
 };
 
+const updateUser = async (image, id) => {
+	return User.updateUser(image, id);
+};
+
 module.exports = {
 	register,
 	login,
+	updateUser,
 };

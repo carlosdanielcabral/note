@@ -19,7 +19,14 @@ const findByEmail = async (email) => {
 	return user[0];
 };
 
+const updateUser = async (image, id) => {
+	const query = 'UPDATE noteDB.users SET image = ? WHERE user_id = ?';
+	const response = await connection.execute(query, [image, id]);
+	return response;
+};
+
 module.exports = {
 	findByEmail,
 	register,
+	updateUser,
 };

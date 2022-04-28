@@ -5,6 +5,8 @@ const User = require('./controllers/User');
 const Note = require('./controllers//Note');
 const errorMiddleware = require('./controllers/ErrorController');
 const validateJWT = require('./auth/validateJWT');
+const multer = require('multer');
+const upload = multer({ dest: './public/images/' });
 require('dotenv').config;
 
 const app = express();
@@ -13,6 +15,7 @@ app.use(express.json());
 app.use(cors());
 app
 	.get('/user', validateJWT, rescue(User.getUser))
+	.put('/user', validateJWT, 	upload.single('image'), rescue(User.updateUser))
 	.post('/user/register', rescue(User.register))
 	.post('/user/login', rescue(User.login))
 	.post('/note/save', validateJWT, rescue(Note.saveNote))
@@ -22,6 +25,8 @@ app
 	.get('/note', validateJWT, rescue(Note.getAllNotesByUserId));
 
 app.use(errorMiddleware);
+
+app.use(express.static('/public/'));
 
 const PORT = process.env.PORT || 3001;
 
