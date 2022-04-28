@@ -18,9 +18,7 @@ Este é um projeto pessoal para o meu portfólio. Trata-se de uma aplicação si
  - MySQL
  - Express
  - Docker
- - ORM
  - JWT
- - Sequelize
  
 ## Executando a aplicação
 
