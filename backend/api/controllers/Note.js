@@ -2,16 +2,16 @@ const Note = require('../services/Note');
 const Joi = require('joi');
 
 const saveNote = async (req, res, next) => {
-	const { title, content, userId } = req.body;
+	const { content } = req.body;
+	const { user_id } = req.user;
 	const { error } = Joi.object({
-		userId: Joi.number().required(),
 		content: Joi.required(),
 	})
-		.validate({ userId: Number(userId), content });
+		.validate({ content });
 	
 	if (error) return next(error);
 
-	const note = await Note.saveNote(title, content, userId);
+	const note = await Note.saveNote(content, user_id);
 
 	if (note.error) return next(note.error);
 

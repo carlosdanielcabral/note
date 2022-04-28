@@ -1,5 +1,38 @@
 .user-container {
-  padding: 10px 20px;
+  padding: 10px 50px;
+}
+
+.user-container h2 {
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.hidden {
+  display: none;
+}
+
+.user-container label {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.user-container label input {
+  margin: 20px 0;
+}
+
+.user-container .edit-option {
+  align-items: center;
+  display: flex;
+}
+
+.user-container .edit-option button {
+  background-color: inherit;
+  border: none;
+  font-size: 25px;
+  padding: 15px;
+  cursor: pointer;
 }
 
 .user-container .profile-image {
@@ -28,8 +61,40 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .user-container input {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.user-container input:read-only {
   border: none;
+}
+
+.user-container input[name="profile_image"] {
+  display: none;
+}
+
+.user-container input[name="password"] {
+  width: 300px;
+}
+
+.profile-image-section label {
+  align-items: flex-start;
+  display: flex;
+  margin: auto;
+  position: absolute;
+  bottom: -10px;
+  width: 70%;
+}
+
+.camera-icon {
+  background-color: white;
+  border-radius: 50%;
+  color: rgb(13, 135, 84);
+  cursor: pointer;
+  font-size: 30px;
+  padding: 5px;
 }

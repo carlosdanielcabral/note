@@ -1,10 +1,10 @@
 const Note = require('../models/Note');
 const errors = require('../errors');
 
-const saveNote = async (title = '', content = '', userId) => {
+const saveNote = async (content = '', userId) => {
 	if (!userId) return { error: errors.invalidUserId };
 
-	return Note.saveNote(title, content, userId);
+	return Note.saveNote(content, userId);
 };
 
 const getAllNotesByUserId = async (userId) => {

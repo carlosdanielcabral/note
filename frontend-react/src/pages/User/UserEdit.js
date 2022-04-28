@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import AppContext from "../context/AppContext";
-import Header from "../components/Header"
-import api from "../services/axiosAPI";
+import { AiFillEdit } from "react-icons/ai";
+import AppContext from "../../context/AppContext";
+import Header from "../../components/Header"
+import api from "../../services/axiosAPI";
 import '../styles/User.css';
 
 const User = () => {
@@ -9,7 +10,7 @@ const User = () => {
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState(user.password);
-  const [readOnly, setReadOnly] = useState(false);
+  const [readOnly, setReadOnly] = useState(true);
   const [image, setImage] = useState('');
 
   const submitImage = async (e) => {
@@ -39,17 +40,24 @@ const User = () => {
     <>
       <Header />
       <div className="user-container">
-        <h2>Meu perfil</h2>
-        <button className="edit" onClick={ () => setReadOnly(!readOnly) }>
-          Editar
-        </button>
+        <div className="edit-option">
+          <h2>Meu perfil</h2>
+          <button className="edit" onClick={ () => setReadOnly(!readOnly) }>
+            <AiFillEdit />
+          </button>
+        </div>
         <form encType="multipart/form-data" onSubmit={submitImage}>
           <section className="personal-data">
             <section className="profile-image-section">
               <div className="profile-image">
                 <img src={ user.image ? user.image : defaultImage} alt="User" />
               </div>
-              <input type="file" name="profile_image" onChange={ (e) => setImage(e.target.files[0]) } />
+              <input
+                type="file"
+                name="profile_image"
+                onChange={ (e) => setImage(e.target.files[0]) }
+                hidden={ readOnly }
+              />
             </section>
 
             <section className="data">
@@ -104,7 +112,7 @@ const User = () => {
             </section>
           </section>
 
-          <button type="submit" disabled={ readOnly }>
+          <button type="submit" hidden={ readOnly }>
             Enviar
           </button>
         </form>

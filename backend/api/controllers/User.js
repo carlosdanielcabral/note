@@ -1,11 +1,9 @@
+require('dotenv/config');
 const User = require('../services/User');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
-const multer = require('multer');
-const upload = multer({ dest: './public/images/' });
-require('dotenv').config;
 
-const secret = 'umasenhaqualquer';
+const secret = process.env.SECRET_KEY;
 
 const jwtConfig = {
 	expiresIn: '8h',
@@ -27,11 +25,6 @@ const register = async (req, res, next) => {
 	if (newUser.error) {
 		next(newUser.error);
 	}
-
-	// User.register(name, email, password)
-	// 	.then(data => console.log(data))
-	// 	.catch(err => console.log(err));
-
 
 	return res.status(201).json(newUser);
 };

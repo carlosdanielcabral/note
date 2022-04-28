@@ -44,11 +44,9 @@ const Principal = () => {
     <div className="principalPage">
       <Header />
       <main>
-        <select>
-          <option>Anotações recentes</option>
-          <option>Mês passado</option>
-          <option>Ano passado</option>
-        </select>
+        <h2>
+          Minhas Notas
+        </h2>
 
         <section className="notes">
           {
@@ -60,10 +58,10 @@ const Principal = () => {
           }
         </section>
 
-        <section className="dailyPhrase">
+        {/* <section className="dailyPhrase">
           <h2>Frase do dia</h2>
           <q>Mais vale um passáro na mão do que dois voando</q>
-        </section>
+        </section> */}
       </main>
 
       <button

@@ -37,11 +37,11 @@ const login = async (email, password) => {
 	const isValidEmailFormat = validateEmailFormat(email);
 	const isValidPassword = validatePassword(password);
 	
+	const user = await hasEmailRegistered(email);
+
 	if (!isValidEmailFormat || !isValidPassword || !user) {
 		return { error: errors.invalidEmailOrPassword };
 	}
-	
-	const user = await hasEmailRegistered(email);
 
 	if (String(user.password) !== String(password)) return { error: errors.invalidEmailOrPassword };
 	

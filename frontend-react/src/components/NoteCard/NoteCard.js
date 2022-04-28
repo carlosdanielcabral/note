@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import parser from 'html-react-parser';
 import styles from './NoteCard.module.css';
+import { FaTrashAlt } from "react-icons/fa";
 
 const NoteCard = ({ note, deleteNote }) => {
   const [isDeleteVisible, setIsDeleteVisible] = useState(false);
@@ -19,8 +20,8 @@ const NoteCard = ({ note, deleteNote }) => {
           </section>
         </section>
       </Link>
-          <button onClick={ () => setIsDeleteVisible(true) }>
-            Excluir
+          <button onClick={ () => setIsDeleteVisible(true) }  className={ styles.delete }>
+            <FaTrashAlt />
           </button>
           {
             isDeleteVisible && (

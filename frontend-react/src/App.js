@@ -9,7 +9,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import New from './pages/Note/New';
 import View from './pages/Note/View';
-import User from './pages/User';
+import User from './pages/User/User';
 import NotAuthorized from './pages/NotAuthorized';
 import './App.css';
 

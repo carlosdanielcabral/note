@@ -38,6 +38,14 @@
   font-size: 13px;
 }
 
+.delete {
+  background-color: inherit;
+  border: none;
+  display: flex;
+  color: rgb(168, 10, 10);
+  padding: 5px 0;
+}
+
 .deleteOptions {
   align-items: center;
   background-color: rgba(200, 200, 200, 0.5);

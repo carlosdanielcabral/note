@@ -21,9 +21,7 @@ services:
       - database
       - backend
       - frontend
-    environment:
-      - MYSQL_HOST=database
-      - MYSQL_DBNAME=noteDB
+    volumes:
       - backend-volume:/var/lib/backend
   frontend:
     build: './frontend-react'

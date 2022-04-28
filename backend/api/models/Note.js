@@ -1,8 +1,8 @@
 const connection = require('./connection');
 
-const saveNote = async (title, content, userId) => {
-	const query = 'INSERT INTO noteDB.notes (title, content, user_id) values (?, ?, ?)';
-	const [note] = await connection.execute(query, [title, content, userId]);
+const saveNote = async (content, userId) => {
+	const query = 'INSERT INTO noteDB.notes (content, user_id) values (?, ?)';
+	const [note] = await connection.execute(query, [content, userId]);
 	return note;
 };
 
