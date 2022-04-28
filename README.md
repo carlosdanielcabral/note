@@ -1,6 +1,6 @@
 # Note
 ## Contexto
-Este é um projeto pessoal para o meu portfólio. Trata-se de uma aplicação simples de anotações, com um pequeno sistema de cadastro e autenticação, rotas acessíveis somente para usuárias autenticados, uso do editor Quill para escrita e formatação da nota, opção de salvamente, edição e exclusão.
+Este é um projeto pessoal para o meu portfólio. Trata-se de uma aplicação simples de anotações, com um pequeno sistema de cadastro e autenticação, com algumas rotas acessíveis somente a pessoas autenticadas, uso do editor Quill para escrita e formatação da nota, opção de salvamente, edição e exclusão.
 
 ## Tecnologias utilizadas
 ### Front End
