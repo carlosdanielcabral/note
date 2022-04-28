@@ -36,19 +36,29 @@ const register = async (name, email, password) => {
 const login = async (email, password) => {
 	const isValidEmailFormat = validateEmailFormat(email);
 	const isValidPassword = validatePassword(password);
-	const user = await hasEmailRegistered(email);
-
+	
 	if (!isValidEmailFormat || !isValidPassword || !user) {
 		return { error: errors.invalidEmailOrPassword };
 	}
+	
+	const user = await hasEmailRegistered(email);
 
 	if (String(user.password) !== String(password)) return { error: errors.invalidEmailOrPassword };
 	
 	return user;
 };
 
-const updateUser = async (image, id) => {
-	return User.updateUser(image, id);
+const updateUser = async (image, userName, email, password, id) => {
+	const isValidName = validateName(userName);
+	const isValidPassword = validatePassword(password);
+
+	if (!isValidName) return { error: errors.invalidName };
+	if (!isValidPassword) return { error: errors.invalidEmailOrPassword };
+	
+	await User.updateUser(image, userName, email, password, id);
+
+	const newUser = await hasEmailRegistered(email);
+	return newUser;
 };
 
 module.exports = {

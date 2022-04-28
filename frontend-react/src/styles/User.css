@@ -1,0 +1,35 @@
+.user-container {
+  padding: 10px 20px;
+}
+
+.user-container .profile-image {
+  border-radius: 50%;
+  height: 300px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.user-container .profile-image img {
+  width: 100%;
+}
+
+.user-container .personal-data {
+  display: flex;
+}
+
+.user-container .personal-data .data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+}
+
+.user-container .profile-image-section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-container input {
+  border: none;
+}

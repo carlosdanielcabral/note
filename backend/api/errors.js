@@ -1,6 +1,6 @@
 const errors = {
 	invalidEmail: {
-		code: 'invalidEmail',
+		code: 'badRequest',
 		message: 'Email já cadastrado ou inválido',
 	},
 	invalidPassword: {

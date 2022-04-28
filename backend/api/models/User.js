@@ -19,9 +19,9 @@ const findByEmail = async (email) => {
 	return user[0];
 };
 
-const updateUser = async (image, id) => {
-	const query = 'UPDATE noteDB.users SET image = ? WHERE user_id = ?';
-	const response = await connection.execute(query, [image, id]);
+const updateUser = async (image, userName, email, password, id) => {
+	const query = 'UPDATE noteDB.users SET image = ?, name = ?, email = ?, password = ? WHERE user_id = ?';
+	const response = await connection.execute(query, [image, userName, email, password, id]);
 	return response;
 };
 
