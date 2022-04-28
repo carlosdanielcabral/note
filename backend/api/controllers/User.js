@@ -28,6 +28,11 @@ const register = async (req, res, next) => {
 		next(newUser.error);
 	}
 
+	// User.register(name, email, password)
+	// 	.then(data => console.log(data))
+	// 	.catch(err => console.log(err));
+
+
 	return res.status(201).json(newUser);
 };
 

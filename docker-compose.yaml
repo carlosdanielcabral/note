@@ -6,6 +6,7 @@ services:
       - 3306:3306
     networks:
       - database
+      - backend
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
@@ -21,8 +22,9 @@ services:
       - backend
       - frontend
     environment:
-      - MYSQL_HOST=localhost
-      - MYSQL_DBNAME=note
+      - MYSQL_HOST=database
+      - MYSQL_DBNAME=noteDB
+      - backend-volume:/var/lib/backend
   frontend:
     build: './frontend-react'
     ports:
@@ -37,3 +39,4 @@ networks:
   database:
 volumes:
   db-volume:
+  backend-volume:
