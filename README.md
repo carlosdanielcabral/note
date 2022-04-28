@@ -7,7 +7,6 @@ Este é um projeto pessoal para o meu portfólio. Trata-se de uma aplicação si
  - HTML
  - CSS
  - React
- - Material-UI
  - React Icons
  - Context API
  - React Hooks
