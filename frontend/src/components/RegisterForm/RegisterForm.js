@@ -6,7 +6,7 @@ import validateData from '../../utils/validateData';
 import styles from './RegisterForm.module.css';
 
 const RegisterForm = () => {
-  const { setAuthorized } = useContext(AppContext);
+  const { setAuthorized, setUser } = useContext(AppContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,6 +23,8 @@ const RegisterForm = () => {
         name, email, password
       });
       setAuthorized(true);
+      setUser(response.data.newUser);
+      localStorage.setItem('token', response.data.token)
       setTimeout(() => push('/home'), ONE_SECOND);
     } catch({ response: { data } }) {
       setAuthorized(false);

@@ -26,7 +26,9 @@ const register = async (req, res, next) => {
 		next(newUser.error);
 	}
 
-	return res.status(201).json(newUser);
+	const token = jwt.sign({ data: newUser }, secret, jwtConfig);
+
+	return res.status(201).json({ token, newUser });
 };
 
 const getUser = async (req, res) => {

@@ -30,7 +30,8 @@ const register = async (name, email, password) => {
 	if (hasEmail || !isValidEmailFormat) return { error: errors.invalidEmail };
 	if (!isValidPassword) return { error: errors.invalidPassword };
 
-	return User.register(name, email, password);
+	await User.register(name, email, password);
+	return User.findByEmail(email);
 };
 
 const login = async (email, password) => {

@@ -1,7 +1,7 @@
 const validateData = (name = "vazio", email, password) => {
   let isValidName = true;
   if (name !== "vazio") {
-    isValidName = name.length > 3 && name.length < 50;
+    isValidName = name.length >= 3 && name.length < 50;
   }
 
   const emailRegex = /\w+@\w+.\w+/;
