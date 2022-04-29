@@ -1,7 +1,7 @@
 const User = require('../models/User');
 const errors = require('../errors.js');
 
-const validateName = (name) => name && name.length > 3 && name.length < 50;
+const validateName = (name) => name && name.length >= 3 && name.length < 50;
 
 const hasEmailRegistered = async (email) => {
 	const existingUser = await User.findByEmail(email);
