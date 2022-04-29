@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.save-button {
+  background-color: rgb(24, 104, 173);
+  border: 1px solid rgb(24, 104, 173);
+  border-radius: 20px;
+  color: white;
+  padding: 10px 20px;
+  transition: 300ms;
+}
+
+.save-button:hover {
+  background-color: inherit;
+  color: rgb(24, 104, 173);
+}

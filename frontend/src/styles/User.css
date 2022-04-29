@@ -48,13 +48,14 @@
 
 .user-container .personal-data {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .user-container .personal-data .data {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
+  padding-left: 10px;
 }
 
 .user-container .profile-image-section {
@@ -86,8 +87,8 @@
   display: flex;
   margin: auto;
   position: absolute;
-  bottom: -10px;
-  width: 70%;
+  bottom: 5px;
+  width: 100%;
 }
 
 .camera-icon {
@@ -96,5 +97,13 @@
   color: rgb(13, 135, 84);
   cursor: pointer;
   font-size: 30px;
+  margin: auto;
   padding: 5px;
+}
+
+@media screen and (max-width: 672px) {
+  .user-container .personal-data .data, .user-container .personal-data .data input {
+    align-items: center;
+    text-align: center;
+  }
 }

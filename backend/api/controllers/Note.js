@@ -11,11 +11,14 @@ const saveNote = async (req, res, next) => {
 	
 	if (error) return next(error);
 
-	const note = await Note.saveNote(content, user_id);
+	// const note = await Note.saveNote(content, user_id);
 
-	if (note.error) return next(note.error);
+	Note.saveNote(content, user_id)
+		.then(data => console.log(data))
+		.catch(err => console.log(err))
+	// if (note.error) return next(note.error);
 
-	return res.status(201).json(note);
+	// return res.status(201).json(note);
 };
 
 const getAllNotesByUserId = async (req, res, next) => {

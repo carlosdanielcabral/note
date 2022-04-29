@@ -37,18 +37,20 @@ const QuillEditorEdit = ({ note, edit }) => {
   return (
     <>
       {
-        success && (
-          <div className="success-card">
-            Nota atualizada!
-          </div>
-        )
+        // success && (
+        //   <div className="success-card-container">
+        //     <div className="success-card">
+        //       Nota atualizada!
+        //     </div>
+        //   </div>
+        // )
       }
               <div id="editor">
                 { parser(note.content) }
               </div>
 
               <button
-                className="save-note"
+                className="save-button"
                 onClick={ editNote }
               >
                 Editar

@@ -51,12 +51,12 @@ const User = () => {
         <div className="edit-option">
           <h2>Meu perfil</h2>
 
-          <button className="edit" onClick={ () => setReadOnly(!readOnly) }>
+          <button className="edit" onClick={ () => setReadOnly(!readOnly) } >
             <AiFillEdit />
           </button>
         </div>
-        <form encType="multipart/form-data" onSubmit={submitImage}>
-          <button type="submit" hidden={ readOnly }>
+        <form encType="multipart/form-data" onSubmit={submitImage} >
+          <button type="submit" hidden={ readOnly } className="save-button">
             Salvar alterações
           </button>
           <section className="personal-data">

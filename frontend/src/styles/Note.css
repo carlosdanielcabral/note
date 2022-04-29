@@ -11,9 +11,18 @@
   height: 400px;
 }
 
-.success-card {
+.success-card-container {
   animation: fade-in;
   animation-duration: 1s;
+  box-sizing: border-box;
+  left: 40vw;
+  position: absolute;
+  top: 90px;
+  width: 100vw;
+  z-index: 10;
+}
+
+.success-card {
   align-items: center;
   background-color: rgb(250, 250, 250);
   border: 3px solid rgb(15, 194, 98);
@@ -24,12 +33,8 @@
   height: 200px;
   font-size: 20px;
   justify-content: center;
-  margin: auto;
-  position: absolute;
-  top: 90px;
-  left: 40vw;
-  width: 20vw;
-  z-index: 10;
+  margin: 0 auto;
+  width: 300px;
 }
 
 @media screen and (max-width : 600px) {

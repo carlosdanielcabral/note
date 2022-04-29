@@ -24,7 +24,7 @@ const RegisterForm = () => {
       });
       setAuthorized(true);
       setUser(response.data.newUser);
-      localStorage.setItem('token', response.data.token)
+      localStorage.setItem('token', response.data.token);
       setTimeout(() => push('/home'), ONE_SECOND);
     } catch({ response: { data } }) {
       setAuthorized(false);

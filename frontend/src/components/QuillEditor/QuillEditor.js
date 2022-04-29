@@ -37,18 +37,20 @@ const QuillEditor = () => {
   return (
     <>
       {
-        success && (
-          <div className="success-card">
-            Nota salva!
-          </div>
-        )
+        // success && (
+        //   // <div className="success-card-container">
+        //   //   <div className="success-card">
+        //   //     Nota atualizada!
+        //   //   </div>
+        //   // </div>
+        // )
       }
               <div id="editor">
                 Digite aqui...
               </div>
 
               <button
-                className="save-note"
+                className="save-button"
                 onClick={ saveNote }
               >
                 Salvar

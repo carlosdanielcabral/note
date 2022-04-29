@@ -22,6 +22,7 @@ const register = async (req, res, next) => {
 	if (error) next(error);
 
 	const newUser = await User.register(name, email, password);
+
 	if (newUser.error) {
 		next(newUser.error);
 	}
