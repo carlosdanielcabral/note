@@ -12,6 +12,8 @@ const User = () => {
   const [password, setPassword] = useState(user.password);
   const [readOnly, setReadOnly] = useState(true);
   const [image, setImage] = useState('');
+  const defaultPath = user.image ? user.image : "/../../assets/img/profile-picture-default.png";
+  const [defaultImage, setDefaultImage] = useState(defaultPath);
 
   const submitImage = async (e) => {
     e.preventDefault();
@@ -31,26 +33,36 @@ const User = () => {
       setName(response.data.name);
       setPassword(response.data.password);
       setUser(response.data);
+      setReadOnly(true);
     } catch(error) {
       console.log(error);
     }
   }
-  const defaultImage = "/../../assets/img/profile-picture-default.png"
+
+  const selectImage = (e) => {
+    setImage(e.target.files[0]);
+    if (e.target.files[0]) setDefaultImage(URL.createObjectURL(e.target.files[0]));
+    else setDefaultImage("/../../assets/img/profile-picture-default.png");
+  }
   return (
     <>
       <Header />
       <div className="user-container">
         <div className="edit-option">
           <h2>Meu perfil</h2>
+
           <button className="edit" onClick={ () => setReadOnly(!readOnly) }>
             <AiFillEdit />
           </button>
         </div>
         <form encType="multipart/form-data" onSubmit={submitImage}>
+          <button type="submit" hidden={ readOnly }>
+            Salvar alterações
+          </button>
           <section className="personal-data">
             <section className="profile-image-section">
               <div className="profile-image">
-                <img src={ user.image ? user.image : defaultImage} alt="User" />
+                <img src={ defaultImage } alt="User" />
               </div>
               <label htmlFor="file">
                 <AiFillCamera className={ `camera-icon ${readOnly && 'hidden'} ` }/>
@@ -58,7 +70,7 @@ const User = () => {
                   type="file"
                   id="file"
                   name="profile_image"
-                  onChange={ (e) => setImage(e.target.files[0]) }
+                  onChange={ (e) => selectImage(e) }
                 />
               </label>
             </section>
@@ -106,10 +118,6 @@ const User = () => {
               </label>
             </section>
           </section>
-
-          <button type="submit" hidden={ readOnly }>
-            Enviar
-          </button>
         </form>
       </div>
     </>
