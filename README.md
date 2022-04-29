@@ -1,13 +1,12 @@
 # Note
 ## Contexto
-Este é um projeto pessoal para o meu portfólio. Trata-se de uma aplicação simples de anotações, com um pequeno sistema de cadastro e autenticação, com algumas rotas acessíveis somente a pessoas autenticadas, uso do editor Quill para escrita e formatação da nota, opção de salvamente, edição e exclusão.
+Este é um projeto pessoal criado para desenvolver meus conhecimentos em backend com NodeJS e exercitar minhas skills de frontend com React. Trata-se de uma aplicação simples de anotações, com um pequeno sistema de cadastro e autenticação, com algumas rotas acessíveis somente a pessoas autenticadas, uso do editor Quill para escrita e formatação da nota, opção de salvamente, edição e exclusão.
 
 ## Tecnologias utilizadas
 ### Front End
  - HTML
  - CSS
  - React
- - Material-UI
  - React Icons
  - Context API
  - React Hooks
