@@ -1,11 +1,11 @@
-import { useContext, useState } from "react";
-import { AiFillEdit } from "react-icons/ai";
-import AppContext from "../../context/AppContext";
-import Header from "../../components/Header"
-import api from "../../services/axiosAPI";
-import '../styles/User.css';
+import React, { useContext, useState } from 'react';
+import { AiFillEdit } from 'react-icons/ai';
+import AppContext from '../../context/AppContext';
+import Header from '../../components/Header';
+import api from '../../services/axiosAPI';
+import '../../styles/User.css';
 
-const User = () => {
+function User() {
   const { user, setUser } = useContext(AppContext);
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
@@ -24,25 +24,26 @@ const User = () => {
     try {
       const response = await api.put('/user', formData, {
         headers: {
+          // eslint-disable-next-line no-underscore-dangle
           'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
           authorization: token,
-        }
+        },
       });
       setName(response.data.name);
       setPassword(response.data.password);
       setUser(response.data);
-    } catch(error) {
+    } catch (error) {
       console.log(error);
     }
-  }
-  const defaultImage = "/../../assets/img/profile-picture-default.png"
+  };
+  const defaultImage = '/../../assets/img/profile-picture-default.png';
   return (
     <>
       <Header />
       <div className="user-container">
         <div className="edit-option">
           <h2>Meu perfil</h2>
-          <button className="edit" onClick={ () => setReadOnly(!readOnly) }>
+          <button className="edit" onClick={() => setReadOnly(!readOnly)} type="button">
             <AiFillEdit />
           </button>
         </div>
@@ -50,13 +51,13 @@ const User = () => {
           <section className="personal-data">
             <section className="profile-image-section">
               <div className="profile-image">
-                <img src={ user.image ? user.image : defaultImage} alt="User" />
+                <img src={user.image ? user.image : defaultImage} alt="User" />
               </div>
               <input
                 type="file"
                 name="profile_image"
-                onChange={ (e) => setImage(e.target.files[0]) }
-                hidden={ readOnly }
+                onChange={(e) => setImage(e.target.files[0])}
+                hidden={readOnly}
               />
             </section>
 
@@ -66,9 +67,9 @@ const User = () => {
               </h3>
               <input
                 type="text"
-                value={ name }
-                onChange={ (e) => setName(e.target.value) }
-                readOnly={ readOnly }
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                readOnly={readOnly}
                 name="user_name"
               />
 
@@ -77,9 +78,9 @@ const User = () => {
               </h3>
               <input
                 type="text"
-                value={ name }
-                onChange={ (e) => setName(e.target.value) }
-                readOnly={ readOnly }
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                readOnly={readOnly}
                 name="user_name"
               />
             </section>
@@ -93,9 +94,9 @@ const User = () => {
               </h3>
               <input
                 type="email"
-                value={ email }
-                onChange={ (e) => setEmail(e.target.value) }
-                readOnly={ readOnly }
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                readOnly={readOnly}
                 name="user_name"
               />
 
@@ -104,21 +105,21 @@ const User = () => {
               </h3>
               <input
                 type="password"
-                value={ password }
-                onChange={ (e) => setPassword(e.target.value) }
-                readOnly={ readOnly }
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                readOnly={readOnly}
                 name="user_name"
               />
             </section>
           </section>
 
-          <button type="submit" hidden={ readOnly }>
+          <button type="submit" hidden={readOnly}>
             Enviar
           </button>
         </form>
       </div>
     </>
-  )
+  );
 }
 
 export default User;

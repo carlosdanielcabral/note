@@ -1,35 +1,34 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import AppContext from "../../context/AppContext";
-import Quill from "quill";
+import Quill from 'quill';
+import AppContext from '../../context/AppContext';
 import api from '../../services/axiosAPI';
-import { QUILL_OPTIONS } from "../../constants";
+import { QUILL_OPTIONS } from '../../constants';
 
-const QuillEditor = () => {
+function QuillEditor() {
   const { user } = useContext(AppContext);
-  const [success, setSuccess] = useState(false);
   const { push } = useHistory();
 
   useEffect(() => {
+    // eslint-disable-next-line no-unused-vars
     const QUILL = new Quill('#editor', { theme: QUILL_OPTIONS.theme, readOnly: false });
   }, []);
 
   const saveNote = async () => {
     const content = String(document.getElementById('editor').firstChild.innerHTML);
     const token = localStorage.getItem('token');
-  
+
     try {
-      const response = await api.post('/note/save', {
+      await api.post('/note/save', {
         content,
         userId: String(user.user_id),
       }, {
         headers: {
           authorization: token,
-        }
+        },
       });
-      setSuccess(true);
       setTimeout(() => push('/home'), 3000);
-    } catch(error) {
+    } catch (error) {
       console.log(`Error: ${error}`);
     }
   };
@@ -45,19 +44,20 @@ const QuillEditor = () => {
         //   // </div>
         // )
       }
-              <div id="editor">
-                Digite aqui...
-              </div>
+      <div id="editor">
+        Digite aqui...
+      </div>
 
-              <button
-                className="save-button"
-                onClick={ saveNote }
-              >
-                Salvar
-              </button>
+      <button
+        className="save-button"
+        onClick={saveNote}
+        type="button"
+      >
+        Salvar
+      </button>
 
     </>
   );
-};
+}
 
 export default QuillEditor;
