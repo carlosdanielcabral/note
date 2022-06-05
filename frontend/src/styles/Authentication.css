@@ -2,6 +2,7 @@
   from {
     background-color: #030912;
   }
+
   to {
     background-color: white;
   }
@@ -12,12 +13,13 @@
     opacity: 0;
     box-shadow: none;
   }
+
   to {
     opacity: 1;
   }
 }
 
-.authenticationPage {
+.authentication-page {
   animation-name: fade-in-color;
   animation-duration: 1s;
   align-items: center;
@@ -29,14 +31,14 @@
   overflow: hidden;
 }
 
-.formsContainer {
+.forms-container {
   animation-name: fade-in-opacity;
   animation-duration: 1s;
   align-items: center;
-  background-color: rgb(253, 253, 253);
+  background-color: rgb(253 253 253);
   border-radius: 3px;
-  box-shadow: 1px 1px 8px 1px rgb(240, 240, 240);
-  color: rgb(100, 100, 100);
+  box-shadow: 1px 1px 8px 1px rgb(240 240 240);
+  color: rgb(100 100 100);
   display: flex;
   flex-wrap: wrap;
   height: 80vh;
@@ -45,7 +47,8 @@
   width: 85vw;
 }
 
-.left, .right {
+.left,
+.right {
   box-sizing: border-box;
   height: 70vh;
   padding: 0 20px;
@@ -60,29 +63,29 @@
   padding-right: 20px;
 }
 
-.authenticationPage fieldset {
+.authentication-page fieldset {
   border: none;
   display: flex;
   flex-direction: column;
 }
 
-.authenticationPage fieldset legend {
+.authentication-page fieldset legend {
   font-size: 26px;
   font-weight: 200;
 }
 
-.authenticationPage input {
-  border: 1px solid rgb(230, 230, 230);
+.authentication-page input {
+  border: 1px solid rgb(230 230 230);
   border-radius: 3px;
   margin: 20px 0;
   padding: 15px;
 }
 
-.registerOption {
+.register-option {
   display: none;
 }
 
-.authenticationPage button {
+.authentication-page button {
   align-items: center;
   border-radius: 3px;
   font-size: 14px;
@@ -92,28 +95,29 @@
   width: 150px;
 }
 
-.authenticationPage button:disabled {
-  background-color: rgb(200, 200, 200);
+.authentication-page button:disabled {
+  background-color: rgb(200 200 200);
   border: none;
 }
 
-.authenticationPage a {
-  color: rgb(0, 76, 142);
+.authentication-page a {
+  color: rgb(0 76 142);
   font-size: 14px;
   font-weight: 300;
 }
 
-.authenticationPage a:hover {
+.authentication-page a:hover {
   text-decoration: underline;
 }
 
 .error {
-  color: rgb(166, 15, 15);
+  color: rgb(166 15 15);
   font-size: 14px;
 }
 
 @media screen and (max-width: 600px) {
-  .left, .right {
+  .left,
+  .right {
     align-items: center;
     display: flex;
     height: 100vh;
@@ -122,31 +126,31 @@
     width: 100%;
   }
 
-  .authenticationPage form {
+  .authentication-page form {
     width: 100%;
   }
 
-  .authenticationPage fieldset legend {
+  .authentication-page fieldset legend {
     font-size: 38px;
     font-weight: 100;
   }
 
-  .authenticationPage input {
+  .authentication-page input {
     font-size: 18px;
   }
 
-  .registerOption {
+  .register-option {
     display: block;
     padding: 15px 0;
   }
 
-  .authenticationPage a {
-    color: rgb(51, 90, 148);
+  .authentication-page a {
+    color: rgb(51 90 148);
     font-size: 14px;
     text-decoration: none;
   }
 
-  .authenticationPage button {
+  .authentication-page button {
     font-size: 18px;
     height: 45px;
     width: 100%;

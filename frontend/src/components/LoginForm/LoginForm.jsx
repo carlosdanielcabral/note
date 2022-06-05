@@ -66,7 +66,7 @@ function LoginForm() {
           value={password}
         />
 
-        <span className={styles.registerOption}>
+        <span className="register-option">
           <Link to="/register">
             Não está cadastrado?
           </Link>

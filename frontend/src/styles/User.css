@@ -18,6 +18,11 @@
   font-weight: 600;
 }
 
+.user-container input {
+  font-size: 20px;
+  font-weight: 100;
+}
+
 .user-container label input {
   margin: 20px 0;
 }
@@ -65,11 +70,6 @@
   position: relative;
 }
 
-.user-container input {
-  font-size: 20px;
-  font-weight: 100;
-}
-
 .user-container input:read-only {
   border: none;
 }
@@ -94,7 +94,7 @@
 .camera-icon {
   background-color: white;
   border-radius: 50%;
-  color: rgb(13, 135, 84);
+  color: rgb(13 135 84);
   cursor: pointer;
   font-size: 30px;
   margin: auto;
@@ -102,7 +102,8 @@
 }
 
 @media screen and (max-width: 672px) {
-  .user-container .personal-data .data, .user-container .personal-data .data input {
+  .user-container .personal-data .data,
+  .user-container .personal-data .data input {
     align-items: center;
     text-align: center;
   }

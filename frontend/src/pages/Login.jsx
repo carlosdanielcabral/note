@@ -4,7 +4,7 @@ import '../styles/Authentication.css';
 
 function Login() {
   return (
-    <div className="authenticationPage">
+    <div className="authentication-page">
       <section className="left">
         <LoginForm />
       </section>

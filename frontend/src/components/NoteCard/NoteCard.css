@@ -1,5 +1,5 @@
-.noteCard {
-  border: 1px solid rgb(200, 200, 200);
+.note-card {
+  border: 1px solid rgb(200 200 200);
   border-radius: 10px;
   flex-shrink: 0;
   height: 200px;
@@ -9,19 +9,19 @@
   width: 150px;
 }
 
-.noteCard a {
+.note-card a {
   text-decoration: none;
-  color: rgb(50, 50, 50);
+  color: rgb(50 50 50);
 }
 
-.noteData {
+.note-data {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 180px;
 }
 
-.noteContent {
+.note-content {
   overflow-wrap: break-word;
   overflow-y: hidden;
   height: 80%;
@@ -29,12 +29,12 @@
   width: 100%;
 }
 
-.noteContent p {
+.note-content p {
   width: 100%;
 }
 
-.noteDate {
-  color: rgb(100, 100, 100);
+.note-date {
+  color: rgb(100 100 100);
   font-size: 13px;
 }
 
@@ -42,13 +42,13 @@
   background-color: inherit;
   border: none;
   display: flex;
-  color: rgb(168, 10, 10);
+  color: rgb(168 10 10);
   padding: 5px 0;
 }
 
-.deleteOptions {
+.delete-options {
   align-items: center;
-  background-color: rgba(200, 200, 200, 0.5);
+  background-color: rgb(200 200 200 / 50%);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -59,6 +59,6 @@
   top: 0;
 }
 
-.deleteOptions h3 {
+.delete-options h3 {
   font-weight: 500;
 }

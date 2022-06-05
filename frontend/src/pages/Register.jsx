@@ -4,7 +4,7 @@ import '../styles/Authentication.css';
 
 function Register() {
   return (
-    <div className="authenticationPage">
+    <div className="authentication-page">
       <section className="right" id="register-section">
         <RegisterForm />
       </section>

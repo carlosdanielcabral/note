@@ -17,7 +17,7 @@ function Home() {
   }
 
   return (
-    <div className="indexPage">
+    <div className="index-page">
       <section>
         <h1 className="fade-out">Note</h1>
         <h2 className="fade-out">O amigo de sua memória</h2>

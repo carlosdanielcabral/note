@@ -41,7 +41,7 @@ function Principal() {
   };
 
   return (
-    <div className="principalPage">
+    <div className="principal-page">
       <Header />
       <main>
         <h2>
@@ -67,7 +67,7 @@ function Principal() {
 
       <button
         type="button"
-        className="noteOptions"
+        className="note-options"
         onClick={() => push('/note/new')}
       >
         +
