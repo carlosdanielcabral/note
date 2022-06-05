@@ -16,4 +16,4 @@ jobs:
       - name: Install front-end modules
         run: cd frontend && npm install
       - name: Run linter on backend
-        run: cd backend && npm run lint
+        run: cd backend/api && npm run lint
