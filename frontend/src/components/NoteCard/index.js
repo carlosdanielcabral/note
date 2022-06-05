@@ -1,1 +1,2 @@
-export { default } './NoteCard';
+// eslint-disable-next-line no-restricted-exports
+export { default } from './NoteCard';

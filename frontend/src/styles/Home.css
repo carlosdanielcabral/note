@@ -1,29 +1,27 @@
-.principalPage main {
+.principal-page main {
   padding: 0 30px;
   padding-top: 50px;
 }
 
-.principalPage select {
+.principal-page select {
   appearance: none;
   background-color: inherit;
   border: none;
-  border-bottom: 1px solid rgb(200, 200, 200);
-  font-family: 'Montserrat', sans-serif;
+  border-bottom: 1px solid rgb(200 200 200);
+  font-family: Montserrat, sans-serif;
   font-size: 24px;
   padding: 10px 0;
   width: 240px;
-  -webkit-appearance: none;
-  -moz-appearance: none;
 }
 
-.principalPage select option {
+.principal-page select option {
   font-size: 16px;
   padding: 20px;
 }
 
 .notes {
   align-items: center;
-  border: 1px solid rgb(200, 200, 200);
+  border: 1px solid rgb(200 200 200);
   box-sizing: border-box;
   display: flex;
   height: 250px;
@@ -38,7 +36,7 @@
 }
 
 .notes::-webkit-scrollbar-thumb {
-  background-color: rgb(220, 220, 220);
+  background-color: rgb(220 220 220);
   border-radius: 20px;
   height: 5px;
   opacity: 0;
@@ -48,21 +46,20 @@
   opacity: 1;
 }
 
-
-.dailyPhrase {
+.daily-phrase {
   margin: 30px 0;
 }
 
-.principalPage h2 {
+.principal-page h2 {
   font-weight: 300;
 }
 
-.noteOptions {
+.note-options {
   align-items: center;
-  background-color: #15B097;
+  background-color: #15b097;
   border: none;
   border-radius: 50%;
-  box-shadow: 1px 1px 5px 1px rgb(200, 200, 200);
+  box-shadow: 1px 1px 5px 1px rgb(200 200 200);
   color: white;
   display: flex;
   font-size: 40px;

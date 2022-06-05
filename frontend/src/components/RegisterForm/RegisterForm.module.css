@@ -1,10 +1,10 @@
 .register {
-  background-color: #2660A4;
-  border: 1px solid #2660A4;
+  background-color: #2660a4;
+  border: 1px solid #2660a4;
   color: white;
 }
 
 .register:hover {
   background-color: inherit;
-  color: #2660A4;
+  color: #2660a4;
 }

@@ -1,0 +1,32 @@
+{
+  "name": "note",
+  "version": "1.0.0",
+  "description": "Este é um projeto pessoal criado para desenvolver meus conhecimentos em backend com NodeJS e exercitar minhas skills de frontend com React. Trata-se de uma aplicação simples de anotações, com um pequeno sistema de cadastro e autenticação, com algumas rotas acessíveis somente a pessoas autenticadas, uso do editor Quill para escrita e formatação da nota, opção de salvamente, edição e exclusão.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosdanielcabral/note.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carlosdanielcabral/note/issues"
+  },
+  "homepage": "https://github.com/carlosdanielcabral/note#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.2",
+    "@commitlint/config-conventional": "^17.0.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

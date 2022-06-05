@@ -1,13 +1,11 @@
-import { useContext, useEffect, useState  } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import api from '../services/axiosAPI';
-import AppContext from '../context/AppContext';
 import Header from '../components/Header';
 import '../styles/Home.css';
 import NoteCard from '../components/NoteCard/NoteCard';
 
-const Principal = () => {
-  const { user } = useContext(AppContext);
+function Principal() {
   const [notes, setNotes] = useState([]);
 
   const { push } = useHistory();
@@ -16,14 +14,16 @@ const Principal = () => {
     const getNotes = async () => {
       const token = localStorage.getItem('token');
       try {
-        const notes = await api.get('/note', { headers: {
-          authorization: token,
-        } });
-        setNotes(notes.data);
-      } catch(error) {
+        const notesResponse = await api.get('/note', {
+          headers: {
+            authorization: token,
+          },
+        });
+        setNotes(notesResponse.data);
+      } catch (error) {
         console.log(error);
       }
-    }
+    };
     getNotes();
   }, [setNotes]);
 
@@ -31,17 +31,17 @@ const Principal = () => {
     const token = localStorage.getItem('token');
     try {
       api.delete(`/note/${id}`, {
-        headers: { authorization: token }
+        headers: { authorization: token },
       });
       const newNotes = notes.filter((note) => note.note_id !== id);
       setNotes(newNotes);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
-    <div className="principalPage">
+    <div className="principal-page">
       <Header />
       <main>
         <h2>
@@ -52,8 +52,9 @@ const Principal = () => {
           {
             notes.length > 0
               ? (
-                notes.map((note) => <NoteCard note={ note } key={ note.note_id } deleteNote={ deleteNote } />)
-                )
+                notes.map((note) => (
+                  <NoteCard note={note} key={note.note_id} deleteNote={deleteNote} />))
+              )
               : ''
           }
         </section>
@@ -66,8 +67,8 @@ const Principal = () => {
 
       <button
         type="button"
-        className="noteOptions"
-        onClick={ () => push('/note/new') }
+        className="note-options"
+        onClick={() => push('/note/new')}
       >
         +
       </button>

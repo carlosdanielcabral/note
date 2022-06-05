@@ -5,13 +5,13 @@ import api from '../../services/axiosAPI';
 import validateData from '../../utils/validateData';
 import styles from './RegisterForm.module.css';
 
-const RegisterForm = () => {
+function RegisterForm() {
   const { setAuthorized, setUser } = useContext(AppContext);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isButtonDisable, setIsButtonDisable] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   const { push } = useHistory();
 
@@ -20,22 +20,22 @@ const RegisterForm = () => {
     e.preventDefault();
     try {
       const response = await api.post('/user/register', {
-        name, email, password
+        name, email, password,
       });
       setAuthorized(true);
       setUser(response.data.newUser);
       localStorage.setItem('token', response.data.token);
       setTimeout(() => push('/home'), ONE_SECOND);
-    } catch({ response: { data } }) {
+    } catch ({ response: { data } }) {
       setAuthorized(false);
       if (data.error.message) {
         setError(data.error.message);
       }
     }
-  }
+  };
 
   const setData = (type, { target: { value } }) => {
-    switch(type) {
+    switch (type) {
       case 'name':
         setName(value);
         if (validateData(value, email, password)) setIsButtonDisable(false);
@@ -52,28 +52,28 @@ const RegisterForm = () => {
         else setIsButtonDisable(true);
         break;
     }
-  }
+  };
 
   return (
     <form>
       <fieldset>
         <legend>Cadastro</legend>
         <input
-          onChange={(e) => setData("name", e)}
+          onChange={(e) => setData('name', e)}
           placeholder="Digite seu nome"
           type="text"
           value={name}
         />
 
         <input
-          onChange={(e) => setData("email", e)}
+          onChange={(e) => setData('email', e)}
           placeholder="Digite seu email"
           type="email"
           value={email}
         />
 
         <input
-          onChange={(e) => setData("password", e)}
+          onChange={(e) => setData('password', e)}
           placeholder="Digite sua senha"
           type="password"
           value={password}
@@ -87,7 +87,7 @@ const RegisterForm = () => {
           type="submit"
           className={styles.register}
           onClick={registerUser}
-          disabled={ isButtonDisable }
+          disabled={isButtonDisable}
         >
           Cadastrar
         </button>
@@ -97,6 +97,6 @@ const RegisterForm = () => {
       </fieldset>
     </form>
   );
-};
+}
 
 export default RegisterForm;

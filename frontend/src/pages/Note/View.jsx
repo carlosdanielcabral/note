@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import api from "../../services/axiosAPI";
-import Header from "../../components/Header";
+import api from '../../services/axiosAPI';
+import Header from '../../components/Header';
 import QuillEditorEdit from '../../components/QuillEditorEdit';
-import "../../styles/Note.css";
+import '../../styles/Note.css';
 
-const View = () => {
+function View() {
   const [note, setNote] = useState({});
   const [hasNote, setHasNote] = useState(false);
 
@@ -18,10 +18,10 @@ const View = () => {
         const response = await api.get(`/note/${id}`, { headers: { authorization: token } });
         setNote(response.data[0]);
         setHasNote(true);
-      } catch(error) {
+      } catch (error) {
         setHasNote(false);
       }
-    }
+    };
     getNote();
   }, [id, setNote]);
 
@@ -30,11 +30,11 @@ const View = () => {
       <Header />
       <div className="editor-container">
         {
-          hasNote && <QuillEditorEdit note={ note } edit={false}/>
+          hasNote && <QuillEditorEdit note={note} edit={false} />
         }
       </div>
     </div>
-  )
-};
+  );
+}
 
 export default View;

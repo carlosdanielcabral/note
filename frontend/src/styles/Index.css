@@ -3,6 +3,7 @@
     opacity: 0;
     width: 0;
   }
+
   to {
     opacity: 1;
     width: 100%;
@@ -13,12 +14,13 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
 }
 
-.indexPage {
+.index-page {
   align-items: center;
   background-color: #030912;
   box-sizing: border-box;
@@ -30,19 +32,19 @@
   width: 100vw;
 }
 
-.indexPage section {
+.index-page section {
   text-align: center;
   height: 50vh;
 }
 
-.indexPage h1 {
+.index-page h1 {
   font-size: 70px;
   font-weight: 100;
   margin-bottom: 0;
   margin-top: 100px;
 }
 
-.indexPage h2 {
+.index-page h2 {
   animation-duration: 2s;
   animation-name: fade-in;
   font-size: 20px;
@@ -52,29 +54,29 @@
   white-space: nowrap;
 }
 
-.indexPage section:nth-child(2) {
+.index-page section:nth-child(2) {
   margin-top: 50px;
 }
 
-.indexPage button {
+.index-page button {
   background-color: #108a75;
   border: 1px solid #108a75;
   border-radius: 5px;
   color: white;
-  font-family: 'Montserrat', sans-serif;
+  font-family: Montserrat, sans-serif;
   font-size: 16px;
   font-weight: 400;
   padding: 10px 20px;
   transition: 300ms;
 }
 
-.indexPage button:hover {
+.index-page button:hover {
   background-color: inherit;
   color: #108a75;
 }
 
-@media only screen and (max-width : 600px) {
-  .indexPage button {
+@media only screen and (max-width: 600px) {
+  .index-page button {
     font-size: 20px;
     padding: 18px 36px;
   }

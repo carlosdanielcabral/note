@@ -3,5 +3,7 @@ export const QUILL_OPTIONS = {
   modules: {
     toolbar: true,
   },
-  theme: 'snow'
+  theme: 'snow',
 };
+
+export const APP_NAME = 'Note';

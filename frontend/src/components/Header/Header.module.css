@@ -9,10 +9,11 @@
 
 .header a {
   text-decoration: none;
-  color: inherit
+  color: inherit;
 }
 
-.right, .left {
+.right,
+.left {
   align-items: center;
   display: flex;
 }

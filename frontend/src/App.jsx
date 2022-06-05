@@ -1,5 +1,4 @@
-
-import { useContext, useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import api from './services/axiosAPI';
 import AppContext from './context/AppContext';
@@ -23,29 +22,30 @@ function App() {
         const response = await api.get('/user', {
           headers: {
             authorization: token,
-          }
+          },
         });
         setUser(response.data);
         setAuthorized(true);
       } catch (error) {
-        console.log(error);
         setAuthorized(false);
       }
-    }
+      return null;
+    };
     getAuth();
   }, [setAuthorized, setUser]);
 
   return (
     <Switch>
-      <Route exact path="/" component={ Index } />
-      <Route path="/register" component={ Register } />
-      <Route path="/login" component={ Login } />
-      <Route path="/home" render={ () =>
-        authorized ? <Home /> : <NotAuthorized /> 
-      }/>
-      <Route path="/note/new" render={ () => authorized ? <New /> : <NotAuthorized /> } />
-      <Route path="/note/:id" render={ () => authorized ? <View /> : <NotAuthorized /> } />
-      <Route path="/user" render={ () => authorized ? <User /> : <NotAuthorized /> } />
+      <Route exact path="/" component={Index} />
+      <Route path="/register" component={Register} />
+      <Route path="/login" component={Login} />
+      <Route
+        path="/home"
+        render={() => (authorized ? <Home /> : <NotAuthorized />)}
+      />
+      <Route path="/note/new" render={() => (authorized ? <New /> : <NotAuthorized />)} />
+      <Route path="/note/:id" render={() => (authorized ? <View /> : <NotAuthorized />)} />
+      <Route path="/user" render={() => (authorized ? <User /> : <NotAuthorized />)} />
     </Switch>
   );
 }
