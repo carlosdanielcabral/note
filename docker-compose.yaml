@@ -10,7 +10,7 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - db-volume:/var/lib/mysql
+      - ./backend/db/mysql:/docker-entrypoint-initdb.d
   backend:
     build: './backend/api'
     ports:
@@ -22,7 +22,7 @@ services:
       - backend
       - frontend
     volumes:
-      - backend-volume:/var/lib/backend
+      - ./backend/api:/app
     environment:
       - MYSQL_HOST=database
       - MYSQL_DB_NAME=noteDB
@@ -35,10 +35,9 @@ services:
       - backend
     networks:
       - frontend
+    volumes:
+      - ./frontend:/app
 networks:
   backend:
   frontend:
   database:
-volumes:
-  db-volume:
-  backend-volume:

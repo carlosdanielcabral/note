@@ -8,11 +8,12 @@ function Home() {
   function changeRoute() {
     const ONE_SECOND = 1000;
 
-    const fadeOut = document.querySelectorAll('.fade-out');
-    fadeOut.forEach((element) => {
-      fadeOut[element].style.animationName = 'fade-out';
-      fadeOut[element].style.animationDuration = '1.5s';
-    });
+    // const fadeOut = document.querySelectorAll('.fade-out');
+    // fadeOut.forEach((element, index) => {
+    //   console.log(fadeOut);
+    //   fadeOut[index].style.animationName = 'fade-out';
+    //   fadeOut[index].style.animationDuration = '1.5s';
+    // });
     setTimeout(() => push('/register'), ONE_SECOND);
   }
 

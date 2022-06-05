@@ -29,7 +29,7 @@ const register = async (req, res, next) => {
 
     const token = jwt.sign({ data: newUser }, secret, jwtConfig);
 
-    return res.status(201).json({ token, newUser });
+    return res.status(201).json({ token, user: newUser });
 };
 
 const getUser = async (req, res) => {
