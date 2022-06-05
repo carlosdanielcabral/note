@@ -1,0 +1,19 @@
+on:
+  [push, pull_request]
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install main modules
+        run: npm install
+      - name: Install back-end modules
+        run: cd backend && npm install
+      - name: Install front-end modules
+        run: cd frontend && npm install
+      - name: Run linter on backend
+        run: cd backend && npm run lint
