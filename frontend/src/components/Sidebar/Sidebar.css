@@ -44,14 +44,17 @@
 }
 
 .user-image {
+  align-items: center;
   background-color: white;
   border-radius: 50%;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
   width: 80px;
   height: 80px;
 }
 
 .user-image img {
-  border-radius: 50%;
   width: 100%;
 }
 

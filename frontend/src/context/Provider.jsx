@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import AppContext from './AppContext';
 
@@ -6,12 +6,13 @@ function Provider({ children }) {
   const [authorized, setAuthorized] = useState(false);
   const [user, setUser] = useState({});
 
-  const context = useMemo(() => ({
+  // eslint-disable-next-line react/jsx-no-constructed-context-values
+  const context = {
     authorized,
     setAuthorized,
     user,
     setUser,
-  }), []);
+  };
 
   return (
     <AppContext.Provider value={context}>
