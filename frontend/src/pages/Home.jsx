@@ -13,31 +13,23 @@ function Principal() {
   useEffect(() => {
     const getNotes = async () => {
       const token = localStorage.getItem('token');
-      try {
-        const notesResponse = await api.get('/note', {
-          headers: {
-            authorization: token,
-          },
-        });
-        setNotes(notesResponse.data);
-      } catch (error) {
-        console.log(error);
-      }
+      const notesResponse = await api.get('/note', {
+        headers: {
+          authorization: token,
+        },
+      });
+      setNotes(notesResponse.data);
     };
     getNotes();
   }, [setNotes]);
 
   const deleteNote = async (id) => {
     const token = localStorage.getItem('token');
-    try {
-      api.delete(`/note/${id}`, {
-        headers: { authorization: token },
-      });
-      const newNotes = notes.filter((note) => note.note_id !== id);
-      setNotes(newNotes);
-    } catch (error) {
-      console.log(error);
-    }
+    api.delete(`/note/${id}`, {
+      headers: { authorization: token },
+    });
+    const newNotes = notes.filter((note) => note.note_id !== id);
+    setNotes(newNotes);
   };
 
   return (

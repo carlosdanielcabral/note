@@ -23,21 +23,17 @@ function User() {
     formData.append('userName', name);
     formData.append('email', email);
     formData.append('password', password);
-    try {
-      const response = await api.put('/user', formData, {
-        headers: {
-          // eslint-disable-next-line no-underscore-dangle
-          'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
-          authorization: token,
-        },
-      });
-      setName(response.data.name);
-      setPassword(response.data.password);
-      setUser(response.data);
-      setReadOnly(true);
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await api.put('/user', formData, {
+      headers: {
+        // eslint-disable-next-line no-underscore-dangle
+        'Content-Type': `multipart/form-data; boundary=${formData._boundary}`,
+        authorization: token,
+      },
+    });
+    setName(response.data.name);
+    setPassword(response.data.password);
+    setUser(response.data);
+    setReadOnly(true);
   };
 
   const selectImage = (e) => {

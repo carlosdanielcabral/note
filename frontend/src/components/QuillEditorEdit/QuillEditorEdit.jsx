@@ -18,19 +18,15 @@ function QuillEditorEdit({ note, edit }) {
     const content = document.getElementById('editor').firstChild.innerHTML;
     const token = localStorage.getItem('token');
 
-    try {
-      await api.put('/note', {
-        content,
-        noteId: note.note_id,
-      }, {
-        headers: {
-          authorization: token,
-        },
-      });
-      setTimeout(() => push('/home'), 3000);
-    } catch (error) {
-      console.log(`Error: ${error}`);
-    }
+    await api.put('/note', {
+      content,
+      noteId: note.note_id,
+    }, {
+      headers: {
+        authorization: token,
+      },
+    });
+    setTimeout(() => push('/home'), 3000);
   };
 
   return (

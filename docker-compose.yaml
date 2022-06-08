@@ -29,6 +29,8 @@ services:
       - MYSQL_HOST=database
       - MYSQL_DB_NAME=noteDB
       - MYSQL_ROOT_PASSWORD=root
+      - SECRET_KEY=eBTwQvDm5M
+
   frontend:
     build: './frontend'
     ports:

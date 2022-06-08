@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import parser from 'html-react-parser';
 import { FaTrashAlt } from 'react-icons/fa';
@@ -41,5 +42,13 @@ function NoteCard({ note, deleteNote }) {
     </div>
   );
 }
+
+NoteCard.propTypes = {
+  note: PropTypes.objectOf(PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ])),
+  deleteNote: PropTypes.func,
+}.isRequired;
 
 export default NoteCard;
