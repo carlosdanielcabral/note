@@ -19,3 +19,8 @@ Este é um projeto pessoal criado para desenvolver meus conhecimentos em backend
  - Docker
  - JWT
  
+## Rodando a aplicação
+
+```bash
+docker-compose up
+```
