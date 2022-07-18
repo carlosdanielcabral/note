@@ -19,6 +19,10 @@ Este é um projeto pessoal criado para desenvolver meus conhecimentos em backend
  - Docker
  - JWT
  
+## Dependências necessárias
+
+Para a execução deste projeto é necessário ter o Docker e Docker Compose instalados na máquina.
+
 ## Rodando a aplicação
 
 ```bash
